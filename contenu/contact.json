@@ -1,0 +1,8 @@
+{
+  "whatsapp": "",
+  "email": "",
+  "telephone": "",
+  "horaires": { "fr": "", "ar": "" },
+  "adresse": { "fr": "", "ar": "" },
+  "messages": { "defaut": { "fr": "", "ar": "" }, "inscription": { "fr": "", "ar": "" }, "pack": { "fr": "", "ar": "" } }
+}

@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-02T10:58:55.833Z",
+  "fichiers": [
+    {
+      "nom": "EL-HAKIM-PRO-Demarrage-Rapide.pdf",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.2/EL-HAKIM-PRO-Demarrage-Rapide.pdf",
+      "sha256": "eaf3f60c50b71403fb9dbff8046951d318139769ec41ee44b851f42c894acd18",
+      "taille": 238929,
+      "destination": "guides/Démarrage rapide.pdf",
+      "version": "1.4.2",
+      "description": "Démarrage rapide (2 pages à imprimer)"
+    },
+    {
+      "nom": "EL-HAKIM-PRO-Guide-Installation.pdf",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.2/EL-HAKIM-PRO-Guide-Installation.pdf",
+      "sha256": "884acb0de7ee7d4fd89a784e41a22c70f16c8609629a9a9666ad0a1f3c926af5",
+      "taille": 1730723,
+      "destination": "guides/Guide d'installation et de configuration.pdf",
+      "version": "1.4.2",
+      "description": "Guide d'installation et de configuration"
+    },
+    {
+      "nom": "EL-HAKIM-PRO-Guide-Utilisation.pdf",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.2/EL-HAKIM-PRO-Guide-Utilisation.pdf",
+      "sha256": "36e56ec38aa6d1e92a8d5caa7e2e3cf0e0fff590511108f7394ceca367a961af",
+      "taille": 4637414,
+      "destination": "guides/Guide d'utilisation.pdf",
+      "version": "1.4.2",
+      "description": "Guide d'utilisation"
+    },
+    {
+      "nom": "guide-courbes-de-croissance.docx",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.2/guide-courbes-de-croissance.docx",
+      "sha256": "4f6bac90f5561863187fe2168301c2d6fc07a8de095c6cbac308bde80bc4e9ff",
+      "taille": 23491,
+      "destination": "guide-courbes-de-croissance.docx",
+      "version": "1",
+      "description": "Guide du module Courbes de croissance"
+    },
+    {
+      "nom": "logos-specialites.rar",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.2/logos-specialites.rar",
+      "sha256": "6b170d024b91f32ff98847d2d16bdcb9d182f89f01ece228a993b23dd61acf44",
+      "taille": 4520188,
+      "destination": "logos-specialites.rar",
+      "version": "1",
+      "description": "Logos de spécialités (16 images)"
+    },
+    {
+      "nom": "nomenclature-medicaments-juin-2026.xlsx",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.2/nomenclature-medicaments-juin-2026.xlsx",
+      "sha256": "44e69a29df6bfe25632ca55d985605b259683f42badabbddeef9b2a8e3c78228",
+      "taille": 1453516,
+      "destination": "nomenclature-medicaments-juin-2026.xlsx",
+      "version": "2026-06",
+      "description": "Nomenclature nationale des médicaments (juin 2026)"
+    }
+  ]
+}

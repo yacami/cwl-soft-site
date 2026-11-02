@@ -1,0 +1,6 @@
+{
+  "_note": "Adresse publique du site, avec la barre finale. À changer quand le domaine sera branché, puis relancer : node outils/assembler.cjs",
+  "url": "https://yacami.github.io/cwl-soft-site/",
+  "editeur": "CWL-SOFT",
+  "produit": "EL-HAKIM PRO"
+}

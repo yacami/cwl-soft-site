@@ -1,0 +1,27 @@
+{
+  "_source": "Fonctions vérifiées dans EL-HAKIM PRO 1.4.2 (code, captures de démonstration, guides). Reformulation libre ; ne rien ajouter qui n'existe pas dans le logiciel. Tenu par le développeur : rendu dans les pages par outils/assembler.cjs.",
+  "medecin": [
+    { "fr": "Consultation : constantes (température, tension, pouls, SpO₂, glycémie), IMC calculé, observations", "ar": "المعاينة: العلامات الحيوية (الحرارة، الضغط، النبض، تشبع الأكسجين، نسبة السكر)، حساب مؤشر كتلة الجسم، الملاحظات", "preuve": "Guide d'utilisation 6 ; capture util-23" },
+    { "fr": "Ordonnance avec recherche dans la nomenclature des médicaments et choix guidé de la posologie", "ar": "وصفة طبية مع البحث في مدونة الأدوية واختيار موجَّه للجرعات", "preuve": "Guide 7 ; captures util-24 à util-26" },
+    { "fr": "Certificats, arrêts de travail, bilans, imagerie, comptes rendus, ordonnances de lunettes, lettres d'orientation", "ar": "شهادات، عطل مرضية، تحاليل، أشعة، تقارير طبية، وصفات النظارات، رسائل توجيه", "preuve": "Générateur de documents ; capture util-27" },
+    { "fr": "Modèles réutilisables d'ordonnances et de documents", "ar": "نماذج قابلة لإعادة الاستعمال للوصفات والوثائق", "preuve": "Écran Modèles ; capture util-18" },
+    { "fr": "Pédiatrie : courbes de croissance (poids, taille, IMC, périmètre crânien), percentiles et Z-scores, âge corrigé des prématurés", "ar": "طب الأطفال: منحنيات النمو (الوزن، الطول، مؤشر كتلة الجسم، محيط الرأس)، المئينات وقيم Z، العمر المصحَّح للخُدَّج", "preuve": "Module Croissance ; références CDC 2000 (pas OMS)" },
+    { "fr": "Traitements en plusieurs séances : total, versé, reste à payer", "ar": "علاجات على عدة حصص: المبلغ الإجمالي، المدفوع، الباقي", "preuve": "Guide 8.1 ; 1.4.1" }
+  ],
+  "secretaire": [
+    { "fr": "Dossiers patients, recherche par nom, téléphone ou date de naissance", "ar": "ملفات المرضى، البحث بالاسم أو الهاتف أو تاريخ الميلاد", "preuve": "Guide 3" },
+    { "fr": "Agenda jour, mois et 3 mois ; rendez-vous de 30 minutes ; arrivée, absence, annulation en un clic", "ar": "جدول المواعيد باليوم والشهر و3 أشهر؛ مواعيد من 30 دقيقة؛ الحضور والغياب والإلغاء بنقرة واحدة", "preuve": "Guide 4" },
+    { "fr": "Salle d'attente en temps réel : le médecin appelle le patient suivant", "ar": "قاعة انتظار مباشرة: الطبيب ينادي المريض التالي", "preuve": "Guide 5" },
+    { "fr": "Rappels des rendez-vous à l'écran", "ar": "تذكير بالمواعيد على الشاشة", "preuve": "Notifications de l'application" },
+    { "fr": "Encaissements confiés par le médecin", "ar": "تحصيل المدفوعات بتفويض من الطبيب", "preuve": "Option « Déléguer l'encaissement au secrétariat »" }
+  ],
+  "cabinet": [
+    { "fr": "Fonctionne sans Internet : les données restent au cabinet", "ar": "يعمل دون إنترنت: تبقى البيانات داخل العيادة", "preuve": "Base PostgreSQL locale ; Internet seulement pour les mises à jour" },
+    { "fr": "Plusieurs postes sur le réseau local (poste serveur et postes clients)", "ar": "عدة حواسيب على الشبكة المحلية (حاسوب خادم وحواسيب عميلة)", "preuve": "Installation : Poste unique / Serveur multi-postes / Poste client" },
+    { "fr": "Documents A5 et A4 avec votre en-tête bilingue français–arabe et votre logo", "ar": "وثائق بمقاس A5 وA4 مع ترويسة ثنائية اللغة فرنسية–عربية وشعار عيادتكم", "preuve": "En-tête commun ; capture util-29" },
+    { "fr": "Caisse : recettes, dépenses, dettes, journal de caisse A4", "ar": "الصندوق: المداخيل، المصاريف، الديون، دفتر الصندوق بمقاس A4", "preuve": "Écran Caisse ; 1.4.2" },
+    { "fr": "Comptes par personne : médecin, secrétaire, administrateur", "ar": "حساب لكل شخص: طبيب، سكرتير(ة)، مسؤول", "preuve": "Gestion utilisateurs" },
+    { "fr": "Mises à jour automatiques signées, sauvegarde complète avant chaque mise à jour, retour automatique en cas de problème", "ar": "تحديثات تلقائية موقَّعة، نسخة احتياطية كاملة قبل كل تحديث، واسترجاع تلقائي عند حدوث مشكل", "preuve": "Installeur et fenêtre Mises à jour" },
+    { "fr": "Sauvegarde et restauration des données depuis la configuration", "ar": "حفظ البيانات واسترجاعها من الإعدادات", "preuve": "Configuration › Sécurité" }
+  ]
+}

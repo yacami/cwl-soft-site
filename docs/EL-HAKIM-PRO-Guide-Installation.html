@@ -1,0 +1,474 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Guide d'installation et de configuration — EL-HAKIM PRO 1.4.2</title><style>/* docs-guides/outils/style-guides.css — guides EL-HAKIM PRO (HTML pour le site et PDF A4).
+   Lisible en noir et blanc : les encadrés se distinguent par leur bordure, leur icône et leur titre, pas par la couleur. */
+:root {
+  --texte: #1d2733; --doux: #5b6776; --bord: #d5dce4; --fond: #f5f7fa; --carte: #fff;
+  --accent: #0d4a7a; --accent-clair: #e8f1f8;
+  --astuce: #1f7a4d; --attention: #9a6700; --important: #b42318;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; font-family: "Segoe UI", "Noto Sans", Arial, sans-serif; color: var(--texte); line-height: 1.55; background: var(--carte); }
+h1, h2, h3, h4 { line-height: 1.25; color: var(--accent); }
+h2 { font-size: 1.55rem; margin: 2.2rem 0 .8rem; padding-bottom: .3rem; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.15rem; margin: 1.6rem 0 .5rem; }
+h4 { font-size: 1rem; margin: 1.2rem 0 .4rem; color: var(--texte); }
+.num { color: var(--doux); font-weight: 600; }
+p, li { max-width: 46rem; }
+ol, ul { padding-left: 1.4rem; }
+li { margin: .25rem 0; }
+strong { color: #0b2f4f; }
+code { font-family: Consolas, "Cascadia Mono", monospace; font-size: .92em; background: var(--fond); border: 1px solid var(--bord); border-radius: 4px; padding: 0 .3em; }
+pre { background: var(--fond); border: 1px solid var(--bord); border-radius: 6px; padding: .7rem .9rem; overflow-x: auto; }
+pre code { border: 0; padding: 0; background: none; }
+table { border-collapse: collapse; width: 100%; margin: .8rem 0; font-size: .95rem; }
+th, td { border: 1px solid var(--bord); padding: .4rem .55rem; text-align: left; vertical-align: top; }
+th { background: var(--fond); }
+figure { margin: 1rem 0 1.4rem; }
+figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--bord); border-radius: 6px; }
+figcaption { font-size: .86rem; color: var(--doux); margin-top: .35rem; font-style: italic; }
+.encadre { border: 1.5px solid; border-left-width: 6px; border-radius: 6px; padding: .55rem .85rem; margin: 1rem 0; background: var(--carte); }
+.encadre p { margin: .25rem 0; }
+.encadre-titre { font-weight: 700; margin-bottom: .15rem; }
+.astuce { border-color: var(--astuce); } .astuce .encadre-titre { color: var(--astuce); }
+.attention { border-color: var(--attention); } .attention .encadre-titre { color: var(--attention); }
+.important { border-color: var(--important); } .important .encadre-titre { color: var(--important); }
+.apprendre { background: var(--accent-clair); border-radius: 6px; padding: .5rem .9rem; margin: .4rem 0 1rem; }
+.sommaire ol { list-style: none; padding: 0; margin: 0; }
+.sommaire li { margin: .15rem 0; max-width: none; }
+.sommaire li.n3 { padding-left: 1.4rem; font-size: .93em; }
+.sommaire a { color: var(--texte); text-decoration: none; }
+.sommaire a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---- Site (HTML) : sommaire à gauche, contenu à droite ; une colonne sur téléphone ---- */
+body.web { display: grid; grid-template-columns: 18rem minmax(0, 1fr); min-height: 100vh; }
+body.web aside { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--fond); border-right: 1px solid var(--bord); padding: 1rem 1rem 2rem; font-size: .92rem; }
+body.web aside .sommaire h2 { font-size: 1rem; border: 0; margin: .2rem 0 .6rem; }
+body.web main { padding: 1.5rem 2.2rem 4rem; max-width: 62rem; }
+.titre-web .produit { color: var(--doux); font-weight: 600; letter-spacing: .05em; }
+.titre-web h1 { margin: .2rem 0 1rem; font-size: 2rem; }
+.recherche { position: sticky; top: 0; background: var(--carte); padding: .6rem 0; z-index: 2; border-bottom: 1px solid var(--bord); margin-bottom: 1rem; }
+.recherche label { display: block; font-size: .85rem; color: var(--doux); }
+.recherche input { width: 100%; max-width: 30rem; font: inherit; padding: .45rem .7rem; border: 1px solid var(--bord); border-radius: 6px; }
+@media (max-width: 860px) {
+  body.web { display: block; }
+  body.web aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--bord); }
+  body.web main { padding: 1rem 1rem 3rem; }
+}
+
+/* ---- PDF A4 ---- */
+body.pdf { font-size: 10.5pt; }
+body.pdf main { padding: 0; }
+.garde { height: 255mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; border: 1.5px solid var(--accent); border-radius: 4mm; padding: 20mm; }
+.garde .editeur { letter-spacing: .3em; font-weight: 700; color: var(--doux); }
+.garde .produit { font-size: 30pt; font-weight: 800; color: var(--accent); margin: 6mm 0 2mm; }
+.garde h1 { font-size: 22pt; margin: 0 0 10mm; }
+.garde .version { font-size: 12pt; }
+.garde .public { margin-top: 4mm; color: var(--doux); }
+body.pdf .sommaire { page-break-after: always; }
+body.pdf section.chapitre { page-break-before: always; }
+body.pdf h2 { margin-top: 0; }
+body.pdf figure, body.pdf .encadre, body.pdf table, body.pdf pre { page-break-inside: avoid; }
+body.pdf h2, body.pdf h3, body.pdf h4 { page-break-after: avoid; }
+body.pdf figure img { max-height: 120mm; width: auto; max-width: 100%; }
+
+/* ---- Démarrage rapide : 2 pages compactes, sans page de garde ---- */
+body.pdf.compact { font-size: 9.5pt; }
+body.pdf.compact section.chapitre { page-break-before: auto; }
+body.pdf.compact h2 { font-size: 13pt; margin: 3mm 0 1.5mm; }
+body.pdf.compact h1.titre-rapide { margin: 0 0 2mm; }
+body.pdf.compact figure img { max-height: 55mm; }
+
+</style></head>
+      <body class="web">
+      <aside><nav class="sommaire" aria-label="Sommaire"><h2 class="sans-num">Sommaire</h2><ol><li class="n2"><a href="#1-avant-de-commencer"><span class="num">1.</span> Avant de commencer</a></li><li class="n3"><a href="#1-1-votre-parcours"><span class="num">1.1</span> Votre parcours</a></li><li class="n3"><a href="#1-2-ce-qu-il-vous-faut"><span class="num">1.2</span> Ce qu'il vous faut</a></li><li class="n3"><a href="#1-3-choisir-l-organisation-du-cabinet"><span class="num">1.3</span> Choisir l'organisation du cabinet</a></li><li class="n2"><a href="#2-installer-el-hakim-pro"><span class="num">2.</span> Installer EL-HAKIM PRO</a></li><li class="n3"><a href="#2-1-telecharger-le-fichier-d-installation"><span class="num">2.1</span> Télécharger le fichier d'installation</a></li><li class="n3"><a href="#2-2-lancer-l-installation"><span class="num">2.2</span> Lancer l'installation</a></li><li class="n3"><a href="#2-3-choisir-le-dossier-d-installation"><span class="num">2.3</span> Choisir le dossier d'installation</a></li><li class="n3"><a href="#2-4-choisir-le-role-de-cet-ordinateur"><span class="num">2.4</span> Choisir le rôle de cet ordinateur</a></li><li class="n3"><a href="#2-5-terminer-l-installation"><span class="num">2.5</span> Terminer l'installation</a></li><li class="n2"><a href="#3-premier-demarrage"><span class="num">3.</span> Premier démarrage</a></li><li class="n3"><a href="#3-1-se-connecter"><span class="num">3.1</span> Se connecter</a></li><li class="n3"><a href="#3-2-renseigner-le-cabinet-avec-l-assistant"><span class="num">3.2</span> Renseigner le cabinet avec l'assistant</a></li><li class="n3"><a href="#3-3-changer-le-mot-de-passe-de-l-administrateur"><span class="num">3.3</span> Changer le mot de passe de l'administrateur</a></li><li class="n2"><a href="#4-configurer-le-cabinet"><span class="num">4.</span> Configurer le cabinet</a></li><li class="n3"><a href="#4-1-identite-du-cabinet-et-logo"><span class="num">4.1</span> Identité du cabinet et logo</a></li><li class="n3"><a href="#4-2-en-tete-des-documents"><span class="num">4.2</span> En-tête des documents</a></li><li class="n3"><a href="#4-3-actes-et-tarifs"><span class="num">4.3</span> Actes et tarifs</a></li><li class="n2"><a href="#5-creer-les-comptes-des-utilisateurs"><span class="num">5.</span> Créer les comptes des utilisateurs</a></li><li class="n3"><a href="#5-1-ajouter-un-utilisateur"><span class="num">5.1</span> Ajouter un utilisateur</a></li><li class="n2"><a href="#6-importer-la-nomenclature-des-medicaments"><span class="num">6.</span> Importer la nomenclature des médicaments</a></li><li class="n2"><a href="#7-utiliser-el-hakim-pro-sur-plusieurs-postes"><span class="num">7.</span> Utiliser EL-HAKIM PRO sur plusieurs postes</a></li><li class="n3"><a href="#7-1-trouver-l-adresse-du-serveur"><span class="num">7.1</span> Trouver l'adresse du serveur</a></li><li class="n3"><a href="#7-2-se-connecter-depuis-un-autre-poste-avec-un-navigateur"><span class="num">7.2</span> Se connecter depuis un autre poste avec un navigateur</a></li><li class="n2"><a href="#8-licence"><span class="num">8.</span> Licence</a></li><li class="n3"><a href="#8-1-voir-l-etat-de-la-licence"><span class="num">8.1</span> Voir l'état de la licence</a></li><li class="n3"><a href="#8-2-demander-une-licence"><span class="num">8.2</span> Demander une licence</a></li><li class="n3"><a href="#8-3-activer-la-licence"><span class="num">8.3</span> Activer la licence</a></li><li class="n2"><a href="#9-mises-a-jour-et-fichiers-joints"><span class="num">9.</span> Mises à jour et fichiers joints</a></li><li class="n3"><a href="#9-1-ouvrir-la-fenetre-des-mises-a-jour"><span class="num">9.1</span> Ouvrir la fenêtre des mises à jour</a></li><li class="n3"><a href="#9-2-installer-une-nouvelle-version"><span class="num">9.2</span> Installer une nouvelle version</a></li><li class="n2"><a href="#10-sauvegarder-et-restaurer-les-donnees"><span class="num">10.</span> Sauvegarder et restaurer les données</a></li><li class="n3"><a href="#10-1-faire-une-sauvegarde"><span class="num">10.1</span> Faire une sauvegarde</a></li><li class="n3"><a href="#10-2-restaurer-une-sauvegarde"><span class="num">10.2</span> Restaurer une sauvegarde</a></li><li class="n2"><a href="#11-desinstaller-el-hakim-pro"><span class="num">11.</span> Désinstaller EL-HAKIM PRO</a></li><li class="n2"><a href="#12-depannage-et-assistance"><span class="num">12.</span> Dépannage et assistance</a></li><li class="n3"><a href="#12-1-contacter-l-assistance-cwl-soft"><span class="num">12.1</span> Contacter l'assistance CWL-SOFT</a></li></ol></nav></aside>
+      <main><header class="titre-web"><div class="produit">EL-HAKIM PRO 1.4.2</div><h1>Guide d'installation et de configuration</h1></header><div class="recherche"><label for="q">Rechercher dans le guide</label>
+        <input id="q" type="search" placeholder="Ex. : sauvegarde, ordonnance, rendez-vous…" autocomplete="off"></div><section class="chapitre"><h2 id="1-avant-de-commencer"><span class="num">1.</span> Avant de commencer</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : ce qu'il faut préparer et comment organiser EL-HAKIM PRO dans votre cabinet.</div>
+
+<h3 id="1-1-votre-parcours"><span class="num">1.1</span> Votre parcours</h3>
+<ul>
+<li><strong>Je suis médecin ou responsable du cabinet</strong> : lisez ce guide en entier. Vous installez le logiciel, vous configurez le cabinet et vous créez les comptes.</li>
+<li><strong>Je suis secrétaire</strong> : lisez les chapitres « Premier démarrage » et « Utiliser EL-HAKIM PRO sur plusieurs postes ». Pour le travail de tous les jours, passez ensuite au <em>Guide d&#39;utilisation</em>.</li>
+</ul>
+<h3 id="1-2-ce-qu-il-vous-faut"><span class="num">1.2</span> Ce qu&#39;il vous faut</h3>
+<ul>
+<li>Un ordinateur sous <strong>Windows 10 ou Windows 11</strong>.</li>
+<li>Environ <strong>1 Go</strong> d&#39;espace libre sur le disque.</li>
+<li><strong>Microsoft Edge</strong> (déjà présent dans Windows) : il sert à l&#39;aperçu avant impression.</li>
+<li>Une <strong>imprimante</strong> qui accepte le papier <strong>A5</strong> (ordonnances, certificats et la plupart des documents) et <strong>A4</strong> (comptes rendus, courbes de croissance). Voir le <em>Guide d&#39;utilisation</em>, section « Papier et imprimante ».</li>
+<li>Le fichier d&#39;installation <strong>el-hakim-pro-setup.exe</strong>.</li>
+<li>Le fichier de la nomenclature des médicaments (fichier Excel), si vous voulez l&#39;importer dès le premier démarrage.</li>
+</ul>
+<h3 id="1-3-choisir-l-organisation-du-cabinet"><span class="num">1.3</span> Choisir l&#39;organisation du cabinet</h3>
+<p>L&#39;installation vous demande comment chaque ordinateur sera utilisé. Choisissez avant de commencer :</p>
+<table>
+<thead>
+<tr>
+<th>Votre cabinet</th>
+<th>Ce qu&#39;il faut installer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Un seul ordinateur</td>
+<td><strong>Poste unique</strong> sur cet ordinateur.</td>
+</tr>
+<tr>
+<td>Plusieurs ordinateurs (médecin, secrétariat…)</td>
+<td><strong>Serveur multi-postes</strong> sur l&#39;ordinateur principal, celui qui garde les données. Les autres ordinateurs l&#39;utilisent par le réseau du cabinet.</td>
+</tr>
+<tr>
+<td>Un ordinateur de plus, pour un cabinet déjà équipé</td>
+<td><strong>Poste client</strong> sur cet ordinateur. Il utilise les données du serveur.</td>
+</tr>
+</tbody></table>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Toutes les données (patients, consultations, rendez-vous, documents) sont gardées sur le <strong>poste unique</strong> ou sur le <strong>serveur</strong>. Le serveur doit être allumé, avec EL-HAKIM PRO ouvert, pour que les autres postes puissent travailler.</p>
+</div><div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Réglez le fuseau horaire de Windows sur l&#39;Algérie avant d&#39;installer. Les heures des rendez-vous et des documents dépendent de ce réglage. Si le fuseau n&#39;est pas le bon, l&#39;installation vous prévient.</p>
+</div></section>
+<section class="chapitre"><h2 id="2-installer-el-hakim-pro"><span class="num">2.</span> Installer EL-HAKIM PRO</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : télécharger le logiciel, l'installer sur un ordinateur et choisir son rôle dans le cabinet.</div>
+
+<h3 id="2-1-telecharger-le-fichier-d-installation"><span class="num">2.1</span> Télécharger le fichier d&#39;installation</h3>
+<ol>
+<li>Ouvrez la page de la dernière version : <strong><a href="https://github.com/yacami/el-hakim-pro-releases/releases/latest">https://github.com/yacami/el-hakim-pro-releases/releases/latest</a></strong></li>
+<li>Dans la liste des fichiers, cliquez sur <strong>el-hakim-pro-setup.exe</strong>. Le téléchargement commence.</li>
+<li>Sur la même page, vous trouvez aussi les fichiers joints : la nomenclature des médicaments, les logos de spécialités et les guides.</li>
+</ol>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Gardez une copie du fichier d&#39;installation sur une clé USB. Elle vous servira pour équiper un nouvel ordinateur sans Internet.</p>
+</div><h3 id="2-2-lancer-l-installation"><span class="num">2.2</span> Lancer l&#39;installation</h3>
+<ol>
+<li>Double-cliquez sur le fichier <strong>el-hakim-pro-setup.exe</strong>.</li>
+<li>Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur <strong>Informations complémentaires</strong>, puis sur <strong>Exécuter quand même</strong>.</li>
+</ol>
+<p></p>
+<h3 id="2-3-choisir-le-dossier-d-installation"><span class="num">2.3</span> Choisir le dossier d&#39;installation</h3>
+<ol>
+<li>L&#39;installation propose un dossier. Gardez-le, ou cliquez sur <strong>Parcourir…</strong> pour en choisir un autre.</li>
+<li>Cliquez sur <strong>Suivant</strong>.</li>
+</ol>
+<p></p>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Pour une mise à jour, gardez le même dossier que l&#39;installation actuelle. Si EL-HAKIM PRO est déjà installé dans un autre dossier, l&#39;installation s&#39;arrête sans rien modifier et vous indique le bon dossier.</p>
+</div><h3 id="2-4-choisir-le-role-de-cet-ordinateur"><span class="num">2.4</span> Choisir le rôle de cet ordinateur</h3>
+<p>La page <strong>Configuration réseau</strong> demande : « Comment ce poste sera-t-il utilisé au cabinet ? »</p>
+<ol>
+<li>Cochez une des trois cases :<ul>
+<li><strong>Poste unique</strong> : EL-HAKIM PRO n&#39;est utilisé que sur cet ordinateur.</li>
+<li><strong>Serveur multi-postes</strong> : les autres ordinateurs du cabinet utilisent les données de ce poste.</li>
+<li><strong>Poste client</strong> : ce poste utilise EL-HAKIM PRO installé sur un autre ordinateur (le serveur).</li>
+</ul>
+</li>
+<li>Pour un <strong>Poste client</strong> seulement : saisissez l&#39;adresse du serveur dans <strong>Adresse du serveur (ex. 192.168.1.10)</strong>. Vous trouvez cette adresse sur le serveur, dans <strong>Configuration</strong> › <strong>Identité</strong> › <strong>ACCÈS RÉSEAU LOCAL</strong> (voir le chapitre « Utiliser EL-HAKIM PRO sur plusieurs postes »).</li>
+<li>Cliquez sur <strong>Installer</strong>.</li>
+</ol>
+<p></p>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Pour un <strong>Serveur multi-postes</strong>, Windows vous demande votre accord pour régler le pare-feu (droits administrateur). Acceptez : sans cette autorisation, les autres postes ne peuvent pas se connecter. La règle créée n&#39;ouvre que le port 3001, et seulement aux ordinateurs du réseau local.</p>
+</div><p>Pour un poste client, l&#39;installation vérifie que le serveur répond :</p>
+<ul>
+<li>« Adresse du serveur invalide » : l&#39;adresse saisie n&#39;est pas correcte. Corrigez-la (exemple : 192.168.1.10).</li>
+<li>« Le serveur … ne répond pas » : vérifiez que le serveur est allumé et qu&#39;EL-HAKIM PRO y est ouvert. Vous pouvez continuer quand même.</li>
+</ul>
+<h3 id="2-5-terminer-l-installation"><span class="num">2.5</span> Terminer l&#39;installation</h3>
+<ol>
+<li>Attendez la fin de la copie des fichiers. Pour une mise à jour, une sauvegarde complète est faite d&#39;abord : cela peut prendre quelques minutes.</li>
+<li>Cliquez sur <strong>Fermer</strong>. Un raccourci <strong>EL-HAKIM PRO</strong> est créé sur le Bureau et dans le menu Démarrer.</li>
+</ol>
+<p></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>En cas de problème pendant une mise à jour, tout est remis comme avant automatiquement. Les sauvegardes faites par l&#39;installation sont rangées dans votre profil Windows, dans le dossier <strong>EL-HAKIM PRO Sauvegardes</strong>.</p>
+</div></section>
+<section class="chapitre"><h2 id="3-premier-demarrage"><span class="num">3.</span> Premier démarrage</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : vous connecter la première fois, sécuriser le compte administrateur et renseigner le cabinet avec l'assistant.</div>
+
+<h3 id="3-1-se-connecter"><span class="num">3.1</span> Se connecter</h3>
+<ol>
+<li>Double-cliquez sur le raccourci <strong>EL-HAKIM PRO</strong> du Bureau.</li>
+<li>Dans <strong>UTILISATEUR</strong>, saisissez <strong>admin</strong>.</li>
+<li>Dans <strong>MOT DE PASSE</strong>, saisissez <strong>admin123</strong>.</li>
+<li>Cliquez sur <strong>S&#39;IDENTIFIER</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-01-connexion.png" alt="Écran Connexion" loading="lazy"><figcaption>Écran Connexion</figcaption></figure></p>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p><strong>admin / admin123</strong> est le compte de départ, le même pour tous les cabinets. Changez ce mot de passe dès la première connexion (voir « Changer le mot de passe de l&#39;administrateur » ci-dessous).</p>
+</div><h3 id="3-2-renseigner-le-cabinet-avec-l-assistant"><span class="num">3.2</span> Renseigner le cabinet avec l&#39;assistant</h3>
+<p>Au premier démarrage, l&#39;assistant <strong>Configuration d&#39;EL-HAKIM PRO</strong> s&#39;ouvre. Il a quatre étapes.</p>
+<p><strong>Étape 1 : Identité du Cabinet</strong></p>
+<ol>
+<li>Saisissez le <strong>Numéro d&#39;Ordre National</strong>.</li>
+<li>Saisissez votre nom dans <strong>Dr. (FR)</strong>, et en arabe dans <strong>الدكتور (AR)</strong>.</li>
+<li>Saisissez votre spécialité dans <strong>Spécialité (FR)</strong>, et en arabe dans <strong>التخصص (AR)</strong>.</li>
+<li>Cliquez sur <strong>Suivant</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-02-assistant-identite.png" alt="Assistant, étape 1 : Identité du Cabinet" loading="lazy"><figcaption>Assistant, étape 1 : Identité du Cabinet</figcaption></figure></p>
+<p><strong>Étape 2 : Logo du Cabinet</strong></p>
+<ol>
+<li>Cliquez sur <strong>Cliquez pour sélectionner votre logo</strong>, puis choisissez l&#39;image (PNG ou JPG, 300 × 300 pixels recommandés). Ce logo apparaît sur vos documents imprimés.</li>
+<li>Saisissez le <strong>Téléphone</strong> du cabinet.</li>
+<li>Saisissez l&#39;<strong>Adresse (FR)</strong>.</li>
+<li>Cliquez sur <strong>Suivant</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-03-assistant-logo.png" alt="Assistant, étape 2 : Logo du Cabinet" loading="lazy"><figcaption>Assistant, étape 2 : Logo du Cabinet</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Vous n&#39;avez pas de logo ? Les logos de spécialités font partie des fichiers joints de la version (fichier <strong>logos-specialites.rar</strong>).</p>
+</div><p><strong>Étape 3 : Nomenclature CNAS</strong></p>
+<ol>
+<li>Cliquez sur <strong>Importer le fichier de nomenclature</strong>, puis choisissez le fichier Excel de la nomenclature (Excel ou CSV accepté). Attendez le message <strong>Importation réussie !</strong> avec le nombre de références disponibles.</li>
+<li>Vérifiez les <strong>ACTES ET TARIFS</strong> proposés. Corrigez un prix si besoin, ou cliquez sur <strong>Ajouter un acte</strong>.</li>
+<li>Cliquez sur <strong>Suivant</strong> (en bas de la page).</li>
+</ol>
+<p><figure><img src="captures/conf-04-assistant-nomenclature.png" alt="Assistant, étape 3 : Nomenclature CNAS" loading="lazy"><figcaption>Assistant, étape 3 : Nomenclature CNAS</figcaption></figure></p>
+<p><strong>Étape 4 : Finalisation</strong></p>
+<ol>
+<li>Vérifiez le résumé affiché sous <strong>Prêt à démarrer !</strong>.</li>
+<li>Cliquez sur <strong>Terminer la configuration</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-05-assistant-fin.png" alt="Assistant, étape 4 : Finalisation" loading="lazy"><figcaption>Assistant, étape 4 : Finalisation</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Tout ce que vous saisissez dans l&#39;assistant se modifie plus tard dans <strong>Configuration</strong>. Vous pouvez aussi importer la nomenclature plus tard, depuis l&#39;écran <strong>Médicaments</strong>.</p>
+</div><h3 id="3-3-changer-le-mot-de-passe-de-l-administrateur"><span class="num">3.3</span> Changer le mot de passe de l&#39;administrateur</h3>
+<ol>
+<li>En bas à gauche, cliquez sur votre nom (<strong>Administrateur Cabinet</strong>). Un menu s&#39;ouvre : <strong>Modifier mot de passe</strong>, <strong>Mon profil</strong>, <strong>Se déconnecter</strong>.</li>
+<li>Cliquez sur <strong>Modifier mot de passe</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-06-menu-compte.png" alt="Menu du compte" loading="lazy"><figcaption>Menu du compte</figcaption></figure></p>
+<ol start="3">
+<li>Dans <strong>Sécurité &amp; Mot de Passe</strong>, saisissez le <strong>MOT DE PASSE ACTUEL</strong> (admin123 la première fois).</li>
+<li>Saisissez le <strong>NOUVEAU MOT DE PASSE</strong>.</li>
+<li>Saisissez-le une seconde fois dans <strong>CONFIRMER LE NOUVEAU</strong>.</li>
+<li>Cliquez sur <strong>Enregistrer les modifications</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-07-mon-compte.png" alt="Mon compte : changer le mot de passe" loading="lazy"><figcaption>Mon compte : changer le mot de passe</figcaption></figure></p>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Notez le nouveau mot de passe dans un endroit sûr. Choisissez un mot de passe que vous seul connaissez : au moins 8 caractères, avec des lettres et des chiffres.</p>
+</div></section>
+<section class="chapitre"><h2 id="4-configurer-le-cabinet"><span class="num">4.</span> Configurer le cabinet</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : modifier l'identité du cabinet et l'en-tête des documents, et régler les actes et leurs tarifs.</div>
+
+<p>Pour ouvrir la configuration, cliquez sur <strong>Configuration</strong> dans le menu de gauche. L&#39;écran a trois onglets : <strong>Identité</strong>, <strong>Tarifs</strong> et <strong>Sécurité</strong>.</p>
+<h3 id="4-1-identite-du-cabinet-et-logo"><span class="num">4.1</span> Identité du cabinet et logo</h3>
+<ol>
+<li>Cliquez sur l&#39;onglet <strong>Identité</strong>.</li>
+<li>Pour changer le logo, cliquez sur <strong>Importer un logo</strong> et choisissez l&#39;image. <strong>Supprimer le logo</strong> le retire.</li>
+<li>Modifiez les champs voulus, puis cliquez sur <strong>Enregistrer</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-08-identite.png" alt="Configuration › Identité" loading="lazy"><figcaption>Configuration › Identité</figcaption></figure></p>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Les modifications ne sont prises en compte qu&#39;après un clic sur <strong>Enregistrer</strong>. Le message <strong>MODIFICATIONS ENREGISTRÉES</strong> le confirme.</p>
+</div><h3 id="4-2-en-tete-des-documents"><span class="num">4.2</span> En-tête des documents</h3>
+<p>Plus bas dans l&#39;onglet <strong>Identité</strong>, la partie <strong>INFORMATIONS BILINGUES</strong> contient ce qui est imprimé en haut de vos ordonnances, certificats et autres documents : votre nom, votre spécialité et l&#39;adresse, en français (<strong>FR</strong>) et en arabe (<strong>AR</strong>).</p>
+<ol>
+<li>Faites défiler l&#39;onglet <strong>Identité</strong> jusqu&#39;à <strong>INFORMATIONS BILINGUES</strong>.</li>
+<li>Complétez les champs en français et en arabe.</li>
+<li>Vérifiez le résultat dans les aperçus de l&#39;en-tête affichés plus bas.</li>
+<li>Cliquez sur <strong>Enregistrer</strong> (en haut de l&#39;onglet).</li>
+</ol>
+<p><figure><img src="captures/conf-10-entete.png" alt="Configuration › Identité › Informations bilingues" loading="lazy"><figcaption>Configuration › Identité › Informations bilingues</figcaption></figure></p>
+<h3 id="4-3-actes-et-tarifs"><span class="num">4.3</span> Actes et tarifs</h3>
+<p>Les actes et leurs prix sont proposés au moment de l&#39;encaissement, à la fin de chaque visite.</p>
+<ol>
+<li>Cliquez sur l&#39;onglet <strong>Tarifs</strong>. La <strong>Nomenclature des actes</strong> s&#39;affiche.</li>
+<li>Pour un nouvel acte, cliquez sur <strong>Ajouter</strong>, puis saisissez le <strong>NOM DE L&#39;ACTE</strong> et son <strong>PRIX</strong> (en DA). Le <strong>CODE</strong> est facultatif.</li>
+<li>Pour modifier un acte, changez son nom ou son prix directement dans sa carte.</li>
+<li>Cliquez sur <strong>Sauvegarder</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-11-tarifs.png" alt="Configuration › Tarifs" loading="lazy"><figcaption>Configuration › Tarifs</figcaption></figure></p>
+</section>
+<section class="chapitre"><h2 id="5-creer-les-comptes-des-utilisateurs"><span class="num">5.</span> Créer les comptes des utilisateurs</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : donner à chaque personne du cabinet son propre compte, avec le bon rôle.</div>
+
+<p>Chaque personne doit avoir son compte. Le rôle décide de ce qu&#39;elle peut voir et faire :</p>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Pour qui</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Médecin</strong></td>
+<td>Le médecin : tout le logiciel (consultations, ordonnances, documents, caisse, configuration), sauf la gestion des comptes.</td>
+</tr>
+<tr>
+<td><strong>Secrétaire</strong></td>
+<td>Le secrétariat : patients (données administratives), rendez-vous, agenda, salle d&#39;attente, encaissements confiés par le médecin. Pas d&#39;accès aux consultations ni aux documents médicaux (secret médical), ni à la <strong>Caisse</strong>, à la <strong>Configuration</strong> et à la <strong>Licence</strong>.</td>
+</tr>
+<tr>
+<td><strong>Administrateur</strong></td>
+<td>La personne qui gère le logiciel : tout, y compris les comptes (<strong>Utilisateurs</strong>).</td>
+</tr>
+</tbody></table>
+<h3 id="5-1-ajouter-un-utilisateur"><span class="num">5.1</span> Ajouter un utilisateur</h3>
+<ol>
+<li>En haut à droite, cliquez sur <strong>Utilisateurs</strong>. L&#39;écran <strong>Gestion utilisateurs</strong> s&#39;ouvre.</li>
+<li>Cliquez sur <strong>Nouvel accès</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-13-utilisateurs.png" alt="Gestion utilisateurs" loading="lazy"><figcaption>Gestion utilisateurs</figcaption></figure></p>
+<ol start="3">
+<li>Saisissez le <strong>NOM COMPLET</strong> de la personne.</li>
+<li>Saisissez son <strong>IDENTIFIANT</strong> : le nom qu&#39;elle tapera pour se connecter.</li>
+<li>Choisissez son <strong>RÔLE</strong> : <strong>Médecin</strong>, <strong>Secrétaire</strong> ou <strong>Administrateur</strong>.</li>
+<li>Saisissez un <strong>MOT DE PASSE</strong>.</li>
+<li>Cliquez sur <strong>Valider les accès</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-14-nouvel-utilisateur.png" alt="Nouvel utilisateur" loading="lazy"><figcaption>Nouvel utilisateur</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p><strong>Statut du compte</strong> autorise ou bloque l&#39;accès. Quand une personne quitte le cabinet, bloquez son compte : elle ne peut plus se connecter.</p>
+</div><div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Ne partagez pas un compte entre plusieurs personnes. Chacun son identifiant et son mot de passe.</p>
+</div></section>
+<section class="chapitre"><h2 id="6-importer-la-nomenclature-des-medicaments"><span class="num">6.</span> Importer la nomenclature des médicaments</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : charger ou mettre à jour la liste des médicaments utilisée pour les ordonnances.</div>
+
+<p>La nomenclature est la liste des médicaments proposée quand vous rédigez une ordonnance. Si vous l&#39;avez importée avec l&#39;assistant, rien à faire. Pour la mettre à jour (nouvelle nomenclature publiée) :</p>
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Médicaments</strong>.</li>
+<li>Cliquez sur <strong>Importer depuis Excel</strong>, puis choisissez le fichier Excel de la nomenclature.</li>
+<li>Attendez la fin de l&#39;importation : le nombre de références s&#39;affiche à côté du titre <strong>Médicaments</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-15-medicaments.png" alt="Médicaments : nomenclature importée" loading="lazy"><figcaption>Médicaments : nomenclature importée</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Le fichier de la nomenclature fait partie des fichiers joints de chaque version (voir « Mises à jour et fichiers joints »). Un médicament absent ? Ajoutez-le avec <strong>Ajouter</strong>.</p>
+</div></section>
+<section class="chapitre"><h2 id="7-utiliser-el-hakim-pro-sur-plusieurs-postes"><span class="num">7.</span> Utiliser EL-HAKIM PRO sur plusieurs postes</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : relier les ordinateurs du cabinet au serveur.</div>
+
+<p>Le serveur est l&#39;ordinateur installé en <strong>Serveur multi-postes</strong>. Les autres postes se connectent à lui de deux façons :</p>
+<ul>
+<li><strong>Avec EL-HAKIM PRO installé en Poste client</strong> (recommandé) : le poste ouvre EL-HAKIM PRO normalement, avec les données du serveur.</li>
+<li><strong>Avec un navigateur</strong> (Microsoft Edge, Google Chrome) : sans rien installer, en ouvrant l&#39;adresse du serveur.</li>
+</ul>
+<h3 id="7-1-trouver-l-adresse-du-serveur"><span class="num">7.1</span> Trouver l&#39;adresse du serveur</h3>
+<ol>
+<li>Sur le <strong>serveur</strong>, cliquez sur <strong>Configuration</strong>, onglet <strong>Identité</strong>.</li>
+<li>Lisez l&#39;adresse sous <strong>ACCÈS RÉSEAU LOCAL</strong>, par exemple <strong><a href="http://192.168.1.10:3001">http://192.168.1.10:3001</a></strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-09-reseau.png" alt="Configuration › Identité › Accès réseau local" loading="lazy"><figcaption>Configuration › Identité › Accès réseau local</figcaption></figure></p>
+<h3 id="7-2-se-connecter-depuis-un-autre-poste-avec-un-navigateur"><span class="num">7.2</span> Se connecter depuis un autre poste avec un navigateur</h3>
+<ol>
+<li>Sur l&#39;autre poste, ouvrez Microsoft Edge ou Google Chrome.</li>
+<li>Dans la barre d&#39;adresse, tapez l&#39;adresse lue sur le serveur (exemple : <strong><a href="http://192.168.1.10:3001">http://192.168.1.10:3001</a></strong>), puis appuyez sur <strong>Entrée</strong>.</li>
+<li>Connectez-vous avec votre identifiant et votre mot de passe.</li>
+</ol>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Ajoutez cette adresse aux favoris du navigateur pour la retrouver en un clic.</p>
+</div><div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Si un poste ne se connecte plus, vérifiez dans cet ordre : le serveur est allumé ; EL-HAKIM PRO est ouvert sur le serveur ; les deux ordinateurs sont sur le même réseau ; l&#39;adresse n&#39;a pas changé (elle peut changer après un redémarrage de la box ou du routeur).</p>
+</div></section>
+<section class="chapitre"><h2 id="8-licence"><span class="num">8.</span> Licence</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : connaître l'état de votre licence et activer une licence reçue.</div>
+
+<p>À l&#39;installation, EL-HAKIM PRO fonctionne en <strong>Période d&#39;essai (3 jours)</strong>. Pour continuer ensuite, il faut une licence. Elle est liée à l&#39;ordinateur (le serveur, dans un cabinet multi-postes).</p>
+<h3 id="8-1-voir-l-etat-de-la-licence"><span class="num">8.1</span> Voir l&#39;état de la licence</h3>
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Licence &amp; Abonnement</strong>.</li>
+<li>Lisez le <strong>TYPE</strong> de licence, la date d&#39;<strong>EXPIRATION</strong> et les <strong>JOURS RESTANTS</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-16-licence.png" alt="Licence &amp; Abonnement" loading="lazy"><figcaption>Licence &amp; Abonnement</figcaption></figure></p>
+<h3 id="8-2-demander-une-licence"><span class="num">8.2</span> Demander une licence</h3>
+<ol>
+<li>Dans <strong>CODE MACHINE</strong>, cliquez sur <strong>COPIER</strong>.</li>
+<li>Envoyez ce code à CWL-SOFT (voir le chapitre « Dépannage et assistance »). Vous recevez en retour un fichier <strong>license.json</strong> ou une clé d&#39;activation.</li>
+</ol>
+<h3 id="8-3-activer-la-licence"><span class="num">8.3</span> Activer la licence</h3>
+<ol>
+<li>Faites défiler jusqu&#39;à <strong>Activer une licence</strong>.</li>
+<li>Cliquez sur <strong>Cliquez pour sélectionner license.json</strong> et choisissez le fichier reçu, ou collez la clé reçue dans <strong>CLÉ D&#39;ACTIVATION</strong>.</li>
+<li>Cliquez sur <strong>Activer la licence</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-17-licence-activer.png" alt="Licence &amp; Abonnement › Activer une licence" loading="lazy"><figcaption>Licence &amp; Abonnement › Activer une licence</figcaption></figure></p>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Quand la licence est expirée, EL-HAKIM PRO affiche l&#39;écran <strong>Licence requise ou expirée</strong> au démarrage. Vos données sont conservées. Cet écran donne aussi le <strong>Code Machine</strong> et permet d&#39;importer le fichier <strong>license.json</strong> ou de saisir la clé, puis de cliquer sur <strong>Activer</strong>.</p>
+</div></section>
+<section class="chapitre"><h2 id="9-mises-a-jour-et-fichiers-joints"><span class="num">9.</span> Mises à jour et fichiers joints</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : installer une nouvelle version et récupérer les fichiers fournis avec elle.</div>
+
+<p>EL-HAKIM PRO vérifie seul, par Internet, si une nouvelle version existe. Sans Internet, il fonctionne normalement : la vérification est simplement refaite plus tard.</p>
+<h3 id="9-1-ouvrir-la-fenetre-des-mises-a-jour"><span class="num">9.1</span> Ouvrir la fenêtre des mises à jour</h3>
+<ol>
+<li>Cliquez sur <strong>Configuration</strong>.</li>
+<li>En bas de l&#39;écran, sous le numéro de version, cliquez sur <strong>Mises à jour et fichiers joints…</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-18-bouton-mises-a-jour.png" alt="Configuration : bouton Mises à jour et fichiers joints" loading="lazy"><figcaption>Configuration : bouton Mises à jour et fichiers joints</figcaption></figure></p>
+<p>La fenêtre <strong>Mises à jour</strong> s&#39;ouvre :</p>
+<ol>
+<li><strong>Vérifier automatiquement les mises à jour</strong> : cochée, la recherche se fait seule.</li>
+<li><strong>Rechercher une mise à jour</strong> : lance la recherche tout de suite.</li>
+<li><strong>Fichiers joints</strong> : la liste des fichiers fournis avec la version (nomenclature, logos, guides) et leur état.</li>
+<li><strong>Ouvrir le dossier des fichiers joints</strong> : ouvre le dossier où ces fichiers sont rangés sur l&#39;ordinateur.</li>
+</ol>
+<p><figure><img src="captures/conf-19-fenetre-mises-a-jour.png" alt="Fenêtre Mises à jour" loading="lazy"><figcaption>Fenêtre Mises à jour</figcaption></figure></p>
+<h3 id="9-2-installer-une-nouvelle-version"><span class="num">9.2</span> Installer une nouvelle version</h3>
+<p>Quand une version est disponible, la fenêtre affiche <strong>Nouvelle version … disponible</strong> et la liste des nouveautés.</p>
+<ol>
+<li>Fermez les dossiers patients ouverts et terminez la visite en cours.</li>
+<li>Cliquez sur <strong>Mettre à jour maintenant</strong>. EL-HAKIM PRO télécharge la version, la vérifie, se ferme, s&#39;installe, puis se rouvre.</li>
+<li>Pour le faire plus tard, cliquez sur <strong>Plus tard</strong>.</li>
+</ol>
+<p><figure><img src="captures/conf-20-nouvelle-version.png" alt="Nouvelle version disponible" loading="lazy"><figcaption>Nouvelle version disponible</figcaption></figure></p>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Dans un cabinet multi-postes, mettez d&#39;abord à jour le <strong>serveur</strong>, puis les postes clients. Pendant la mise à jour du serveur (2 à 3 minutes), les autres postes sont déconnectés.</p>
+</div><div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Une sauvegarde complète est faite avant toute modification. En cas de problème, tout est remis comme avant.</p>
+</div></section>
+<section class="chapitre"><h2 id="10-sauvegarder-et-restaurer-les-donnees"><span class="num">10.</span> Sauvegarder et restaurer les données</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : faire une copie de vos données et la remettre en place si besoin.</div>
+
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>EL-HAKIM PRO ne fait <strong>pas</strong> de sauvegarde automatique de vos données au quotidien. Faites une sauvegarde au moins une fois par semaine, et gardez-la hors de l&#39;ordinateur (clé USB, disque externe).</p>
+</div><h3 id="10-1-faire-une-sauvegarde"><span class="num">10.1</span> Faire une sauvegarde</h3>
+<ol>
+<li>Sur le <strong>poste unique</strong> ou sur le <strong>serveur</strong>, cliquez sur <strong>Configuration</strong>, puis sur l&#39;onglet <strong>Sécurité</strong>.</li>
+<li>Dans <strong>Coffre-fort</strong>, sous <strong>Exporter archive</strong>, cliquez sur <strong>Générer la sauvegarde</strong>.</li>
+<li>Choisissez où enregistrer le fichier <strong>sauvegarde_cabinet_AAAA-MM-JJ.zip</strong> (la date du jour est dans le nom).</li>
+</ol>
+<p><figure><img src="captures/conf-12-securite.png" alt="Configuration › Sécurité › Coffre-fort" loading="lazy"><figcaption>Configuration › Sécurité › Coffre-fort</figcaption></figure></p>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Faites la sauvegarde sur le serveur lui-même, pas depuis un poste client : depuis un poste client, la sauvegarde ne fonctionne pas.</p>
+</div><h3 id="10-2-restaurer-une-sauvegarde"><span class="num">10.2</span> Restaurer une sauvegarde</h3>
+<ol>
+<li>Cliquez sur <strong>Configuration</strong>, onglet <strong>Sécurité</strong>.</li>
+<li>Sous <strong>Restaurer archive</strong>, cliquez sur <strong>Restaurer sauvegarde</strong>.</li>
+<li>Choisissez le fichier de sauvegarde (<strong>.zip</strong>). À la fin, l&#39;écran se recharge.</li>
+</ol>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>La restauration remet les données telles qu&#39;elles étaient le jour de la sauvegarde. Faites d&#39;abord une sauvegarde des données actuelles, au cas où.</p>
+</div></section>
+<section class="chapitre"><h2 id="11-desinstaller-el-hakim-pro"><span class="num">11.</span> Désinstaller EL-HAKIM PRO</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : retirer le logiciel sans perdre vos données.</div>
+
+<ol>
+<li>Fermez complètement EL-HAKIM PRO.</li>
+<li>Ouvrez les <strong>Paramètres</strong> de Windows, puis <strong>Applications</strong>. Cliquez sur <strong>EL-HAKIM PRO</strong>, puis sur <strong>Désinstaller</strong>.</li>
+<li>La page <strong>Vos données</strong> s&#39;affiche. Par défaut, toutes vos données sont <strong>conservées</strong> dans le dossier d&#39;installation : une réinstallation les retrouvera.</li>
+<li>Ne cochez <strong>Supprimer aussi définitivement toutes les données de ce poste</strong> que si vous voulez tout effacer.</li>
+<li>Continuez jusqu&#39;à la fin.</li>
+</ol>
+<p></p>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>La suppression des données est irréversible. Les sauvegardes déjà faites (dossier <strong>EL-HAKIM PRO Sauvegardes</strong>) ne sont pas supprimées.</p>
+</div></section>
+<section class="chapitre"><h2 id="12-depannage-et-assistance"><span class="num">12.</span> Dépannage et assistance</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : résoudre les problèmes les plus courants et contacter l'assistance.</div>
+
+<table>
+<thead>
+<tr>
+<th>Ce que vous voyez</th>
+<th>Que faire</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Base de données inaccessible</strong> au démarrage</td>
+<td>Fermez EL-HAKIM PRO, attendez quelques secondes et rouvrez-le. Sinon, redémarrez l&#39;ordinateur. Cliquez sur <strong>Réessayer</strong>.</td>
+</tr>
+<tr>
+<td><strong>Licence requise ou expirée</strong></td>
+<td>Voir le chapitre « Licence ». Vos données sont conservées.</td>
+</tr>
+<tr>
+<td>Un poste client ne se connecte pas</td>
+<td>Voir « Utiliser EL-HAKIM PRO sur plusieurs postes ».</td>
+</tr>
+<tr>
+<td>Les heures des rendez-vous sont décalées</td>
+<td>Réglez le fuseau horaire de Windows sur l&#39;Algérie, puis redémarrez EL-HAKIM PRO.</td>
+</tr>
+<tr>
+<td>La recherche de mise à jour échoue</td>
+<td>Vérifiez la connexion Internet. EL-HAKIM PRO refera la recherche plus tard.</td>
+</tr>
+</tbody></table>
+<h3 id="12-1-contacter-l-assistance-cwl-soft"><span class="num">12.1</span> Contacter l&#39;assistance CWL-SOFT</h3>
+<p>Si le problème continue, contactez CWL-SOFT, votre fournisseur d&#39;EL-HAKIM PRO. Préparez avant d&#39;appeler :</p>
+<ul>
+<li>la version d&#39;EL-HAKIM PRO (affichée en bas de l&#39;écran <strong>Configuration</strong>) ;</li>
+<li>le <strong>CODE MACHINE</strong> (écran <strong>Licence &amp; Abonnement</strong>) ;</li>
+<li>le message d&#39;erreur exact (une photo de l&#39;écran suffit).</li>
+</ul>
+</section></main><script>
+      // Recherche : n'affiche que les sections qui contiennent le texte saisi.
+      const q = document.getElementById("q"), sections = [...document.querySelectorAll("main section.chapitre")];
+      q.addEventListener("input", () => { const t = q.value.trim().toLowerCase();
+        for (const s of sections) s.hidden = t !== "" && !s.innerText.toLowerCase().includes(t); });
+    </script></body></html>

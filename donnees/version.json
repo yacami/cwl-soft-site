@@ -1,0 +1,9 @@
+{
+  "version": "1.4.2",
+  "date": "2026-11-02T10:42:25.253Z",
+  "taille": 187437346,
+  "sha256": "3eede2a2bdd0be4963e23ad2780d1046b65fb524ca8a32f08c686d0e01d564e8",
+  "notes": "Mise à jour de la 1.4.1. Vos données et votre licence sont conservées.\n\n### Ce qui change pour vous\n- **Activation de la licence** : un refus est maintenant expliqué en clair, avec un code pour le support (LIC-01 à LIC-08), au lieu de « HTTP 400 ». Une clé collée avec des espaces ou des retours à la ligne est acceptée. Si le serveur EL-HAKIM ne répond pas, un message l'indique.\n- **Journal de caisse** : nouvelle présentation A4 avec l'en-tête du cabinet, la date de chaque opération, un sous-total par jour, une synthèse (encaissé, dépenses, solde, impayés, répartition par mode de paiement), une zone de signature et la numérotation « Page X / Y ». Les montants et les calculs ne changent pas.\n\n### À savoir\n- Une licence fabriquée avec l'ancien générateur (avant la 1.4.0) est refusée avec le code LIC-02 et le code machine du poste : demandez une nouvelle licence à CWL-SOFT. Les postes déjà activés restent activés.",
+  "obligatoire": false,
+  "page": "https://github.com/yacami/el-hakim-pro-releases/releases/tag/v1.4.2"
+}

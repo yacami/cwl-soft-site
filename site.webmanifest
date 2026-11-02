@@ -1,0 +1,20 @@
+{
+  "name": "EL-HAKIM PRO · CWL-SOFT",
+  "short_name": "EL-HAKIM PRO",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#0f1e33",
+  "theme_color": "#0f1e33",
+  "icons": [
+    {
+      "src": "assets/img/icone-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

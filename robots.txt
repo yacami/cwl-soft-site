@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yacami.github.io/cwl-soft-site/sitemap.xml

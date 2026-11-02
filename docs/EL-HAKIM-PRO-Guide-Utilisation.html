@@ -1,0 +1,493 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Guide d'utilisation — EL-HAKIM PRO 1.4.2</title><style>/* docs-guides/outils/style-guides.css — guides EL-HAKIM PRO (HTML pour le site et PDF A4).
+   Lisible en noir et blanc : les encadrés se distinguent par leur bordure, leur icône et leur titre, pas par la couleur. */
+:root {
+  --texte: #1d2733; --doux: #5b6776; --bord: #d5dce4; --fond: #f5f7fa; --carte: #fff;
+  --accent: #0d4a7a; --accent-clair: #e8f1f8;
+  --astuce: #1f7a4d; --attention: #9a6700; --important: #b42318;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; font-family: "Segoe UI", "Noto Sans", Arial, sans-serif; color: var(--texte); line-height: 1.55; background: var(--carte); }
+h1, h2, h3, h4 { line-height: 1.25; color: var(--accent); }
+h2 { font-size: 1.55rem; margin: 2.2rem 0 .8rem; padding-bottom: .3rem; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.15rem; margin: 1.6rem 0 .5rem; }
+h4 { font-size: 1rem; margin: 1.2rem 0 .4rem; color: var(--texte); }
+.num { color: var(--doux); font-weight: 600; }
+p, li { max-width: 46rem; }
+ol, ul { padding-left: 1.4rem; }
+li { margin: .25rem 0; }
+strong { color: #0b2f4f; }
+code { font-family: Consolas, "Cascadia Mono", monospace; font-size: .92em; background: var(--fond); border: 1px solid var(--bord); border-radius: 4px; padding: 0 .3em; }
+pre { background: var(--fond); border: 1px solid var(--bord); border-radius: 6px; padding: .7rem .9rem; overflow-x: auto; }
+pre code { border: 0; padding: 0; background: none; }
+table { border-collapse: collapse; width: 100%; margin: .8rem 0; font-size: .95rem; }
+th, td { border: 1px solid var(--bord); padding: .4rem .55rem; text-align: left; vertical-align: top; }
+th { background: var(--fond); }
+figure { margin: 1rem 0 1.4rem; }
+figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--bord); border-radius: 6px; }
+figcaption { font-size: .86rem; color: var(--doux); margin-top: .35rem; font-style: italic; }
+.encadre { border: 1.5px solid; border-left-width: 6px; border-radius: 6px; padding: .55rem .85rem; margin: 1rem 0; background: var(--carte); }
+.encadre p { margin: .25rem 0; }
+.encadre-titre { font-weight: 700; margin-bottom: .15rem; }
+.astuce { border-color: var(--astuce); } .astuce .encadre-titre { color: var(--astuce); }
+.attention { border-color: var(--attention); } .attention .encadre-titre { color: var(--attention); }
+.important { border-color: var(--important); } .important .encadre-titre { color: var(--important); }
+.apprendre { background: var(--accent-clair); border-radius: 6px; padding: .5rem .9rem; margin: .4rem 0 1rem; }
+.sommaire ol { list-style: none; padding: 0; margin: 0; }
+.sommaire li { margin: .15rem 0; max-width: none; }
+.sommaire li.n3 { padding-left: 1.4rem; font-size: .93em; }
+.sommaire a { color: var(--texte); text-decoration: none; }
+.sommaire a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---- Site (HTML) : sommaire à gauche, contenu à droite ; une colonne sur téléphone ---- */
+body.web { display: grid; grid-template-columns: 18rem minmax(0, 1fr); min-height: 100vh; }
+body.web aside { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--fond); border-right: 1px solid var(--bord); padding: 1rem 1rem 2rem; font-size: .92rem; }
+body.web aside .sommaire h2 { font-size: 1rem; border: 0; margin: .2rem 0 .6rem; }
+body.web main { padding: 1.5rem 2.2rem 4rem; max-width: 62rem; }
+.titre-web .produit { color: var(--doux); font-weight: 600; letter-spacing: .05em; }
+.titre-web h1 { margin: .2rem 0 1rem; font-size: 2rem; }
+.recherche { position: sticky; top: 0; background: var(--carte); padding: .6rem 0; z-index: 2; border-bottom: 1px solid var(--bord); margin-bottom: 1rem; }
+.recherche label { display: block; font-size: .85rem; color: var(--doux); }
+.recherche input { width: 100%; max-width: 30rem; font: inherit; padding: .45rem .7rem; border: 1px solid var(--bord); border-radius: 6px; }
+@media (max-width: 860px) {
+  body.web { display: block; }
+  body.web aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--bord); }
+  body.web main { padding: 1rem 1rem 3rem; }
+}
+
+/* ---- PDF A4 ---- */
+body.pdf { font-size: 10.5pt; }
+body.pdf main { padding: 0; }
+.garde { height: 255mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; border: 1.5px solid var(--accent); border-radius: 4mm; padding: 20mm; }
+.garde .editeur { letter-spacing: .3em; font-weight: 700; color: var(--doux); }
+.garde .produit { font-size: 30pt; font-weight: 800; color: var(--accent); margin: 6mm 0 2mm; }
+.garde h1 { font-size: 22pt; margin: 0 0 10mm; }
+.garde .version { font-size: 12pt; }
+.garde .public { margin-top: 4mm; color: var(--doux); }
+body.pdf .sommaire { page-break-after: always; }
+body.pdf section.chapitre { page-break-before: always; }
+body.pdf h2 { margin-top: 0; }
+body.pdf figure, body.pdf .encadre, body.pdf table, body.pdf pre { page-break-inside: avoid; }
+body.pdf h2, body.pdf h3, body.pdf h4 { page-break-after: avoid; }
+body.pdf figure img { max-height: 120mm; width: auto; max-width: 100%; }
+
+/* ---- Démarrage rapide : 2 pages compactes, sans page de garde ---- */
+body.pdf.compact { font-size: 9.5pt; }
+body.pdf.compact section.chapitre { page-break-before: auto; }
+body.pdf.compact h2 { font-size: 13pt; margin: 3mm 0 1.5mm; }
+body.pdf.compact h1.titre-rapide { margin: 0 0 2mm; }
+body.pdf.compact figure img { max-height: 55mm; }
+
+</style></head>
+      <body class="web">
+      <aside><nav class="sommaire" aria-label="Sommaire"><h2 class="sans-num">Sommaire</h2><ol><li class="n2"><a href="#1-avant-de-commencer"><span class="num">1.</span> Avant de commencer</a></li><li class="n3"><a href="#1-1-je-suis-secretaire"><span class="num">1.1</span> Je suis secrétaire</a></li><li class="n3"><a href="#1-2-je-suis-medecin"><span class="num">1.2</span> Je suis médecin</a></li><li class="n2"><a href="#2-decouvrir-l-ecran-principal"><span class="num">2.</span> Découvrir l'écran principal</a></li><li class="n3"><a href="#2-1-les-notifications"><span class="num">2.1</span> Les notifications</a></li><li class="n3"><a href="#2-2-se-deconnecter"><span class="num">2.2</span> Se déconnecter</a></li><li class="n2"><a href="#3-gerer-les-patients"><span class="num">3.</span> Gérer les patients</a></li><li class="n3"><a href="#3-1-trouver-un-patient"><span class="num">3.1</span> Trouver un patient</a></li><li class="n3"><a href="#3-2-creer-un-dossier-patient"><span class="num">3.2</span> Créer un dossier patient</a></li><li class="n3"><a href="#3-3-ouvrir-le-dossier-d-un-patient"><span class="num">3.3</span> Ouvrir le dossier d'un patient</a></li><li class="n3"><a href="#3-4-modifier-le-profil-medical-poids-taille"><span class="num">3.4</span> Modifier le profil médical (poids, taille…)</a></li><li class="n3"><a href="#3-5-joindre-un-document-au-dossier"><span class="num">3.5</span> Joindre un document au dossier</a></li><li class="n2"><a href="#4-gerer-les-rendez-vous-et-l-agenda"><span class="num">4.</span> Gérer les rendez-vous et l'agenda</a></li><li class="n3"><a href="#4-1-donner-un-rendez-vous-depuis-le-dossier-du-patient"><span class="num">4.1</span> Donner un rendez-vous depuis le dossier du patient</a></li><li class="n3"><a href="#4-2-lire-l-agenda"><span class="num">4.2</span> Lire l'agenda</a></li><li class="n3"><a href="#4-3-donner-un-rendez-vous-depuis-l-agenda"><span class="num">4.3</span> Donner un rendez-vous depuis l'agenda</a></li><li class="n3"><a href="#4-4-signaler-l-arrivee-une-absence-ou-une-annulation"><span class="num">4.4</span> Signaler l'arrivée, une absence ou une annulation</a></li><li class="n3"><a href="#4-5-voir-le-detail-d-un-rendez-vous"><span class="num">4.5</span> Voir le détail d'un rendez-vous</a></li><li class="n2"><a href="#5-accueillir-les-patients-la-salle-d-attente"><span class="num">5.</span> Accueillir les patients : la salle d'attente</a></li><li class="n2"><a href="#6-faire-une-consultation"><span class="num">6.</span> Faire une consultation</a></li><li class="n2"><a href="#7-rediger-une-ordonnance"><span class="num">7.</span> Rédiger une ordonnance</a></li><li class="n3"><a href="#7-1-ajouter-un-medicament"><span class="num">7.1</span> Ajouter un médicament</a></li><li class="n3"><a href="#7-2-utiliser-un-modele-d-ordonnance"><span class="num">7.2</span> Utiliser un modèle d'ordonnance</a></li><li class="n2"><a href="#8-cloturer-la-visite-et-encaisser"><span class="num">8.</span> Clôturer la visite et encaisser</a></li><li class="n3"><a href="#8-1-un-traitement-en-plusieurs-seances"><span class="num">8.1</span> Un traitement en plusieurs séances</a></li><li class="n2"><a href="#9-etablir-un-document"><span class="num">9.</span> Établir un document</a></li><li class="n3"><a href="#9-1-choisir-le-type-de-document"><span class="num">9.1</span> Choisir le type de document</a></li><li class="n3"><a href="#9-2-exemple-un-certificat-medical"><span class="num">9.2</span> Exemple : un certificat médical</a></li><li class="n3"><a href="#9-3-exemple-un-arret-de-travail"><span class="num">9.3</span> Exemple : un arrêt de travail</a></li><li class="n3"><a href="#9-4-retrouver-et-reimprimer-un-document"><span class="num">9.4</span> Retrouver et réimprimer un document</a></li><li class="n3"><a href="#9-5-papier-et-imprimante"><span class="num">9.5</span> Papier et imprimante</a></li><li class="n2"><a href="#10-suivre-la-croissance-d-un-enfant"><span class="num">10.</span> Suivre la croissance d'un enfant</a></li><li class="n2"><a href="#11-les-modeles"><span class="num">11.</span> Les modèles</a></li><li class="n2"><a href="#12-les-medicaments"><span class="num">12.</span> Les médicaments</a></li><li class="n2"><a href="#13-la-caisse"><span class="num">13.</span> La caisse</a></li><li class="n3"><a href="#13-1-ajouter-une-recette-ou-une-depense"><span class="num">13.1</span> Ajouter une recette ou une dépense</a></li><li class="n2"><a href="#14-bonnes-pratiques"><span class="num">14.</span> Bonnes pratiques</a></li></ol></nav></aside>
+      <main><header class="titre-web"><div class="produit">EL-HAKIM PRO 1.4.2</div><h1>Guide d'utilisation</h1></header><div class="recherche"><label for="q">Rechercher dans le guide</label>
+        <input id="q" type="search" placeholder="Ex. : sauvegarde, ordonnance, rendez-vous…" autocomplete="off"></div><section class="chapitre"><h2 id="1-avant-de-commencer"><span class="num">1.</span> Avant de commencer</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : quels chapitres lire selon votre métier.</div>
+
+<p>Ce guide suppose qu&#39;EL-HAKIM PRO est installé et configuré (voir le <em>Guide d&#39;installation et de configuration</em>) et que vous avez votre identifiant et votre mot de passe.</p>
+<h3 id="1-1-je-suis-secretaire"><span class="num">1.1</span> Je suis secrétaire</h3>
+<p>Lisez dans l&#39;ordre :</p>
+<ol>
+<li>« Découvrir l&#39;écran principal »</li>
+<li>« Gérer les patients »</li>
+<li>« Gérer les rendez-vous et l&#39;agenda »</li>
+<li>« Accueillir les patients : la salle d&#39;attente »</li>
+</ol>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Le compte <strong>Secrétaire</strong> est limité aux données administratives. Dans le dossier d&#39;un patient, la partie médicale affiche <strong>Accès restreint</strong> : c&#39;est normal (secret médical). La <strong>Caisse</strong>, la <strong>Configuration</strong> et la <strong>Licence</strong> ne sont pas accessibles.</p>
+</div><h3 id="1-2-je-suis-medecin"><span class="num">1.2</span> Je suis médecin</h3>
+<p>Lisez tout le guide. Les chapitres les plus utiles au quotidien :</p>
+<ol>
+<li>« Accueillir les patients : la salle d&#39;attente »</li>
+<li>« Faire une consultation »</li>
+<li>« Rédiger une ordonnance »</li>
+<li>« Clôturer la visite et encaisser »</li>
+<li>« Établir un document »</li>
+</ol>
+</section>
+<section class="chapitre"><h2 id="2-decouvrir-l-ecran-principal"><span class="num">2.</span> Découvrir l&#39;écran principal</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : reconnaître les parties de l'écran principal et passer d'un écran à l'autre.</div>
+
+<p>Après la connexion, EL-HAKIM PRO s&#39;ouvre sur <strong>Vue d&#39;ensemble</strong> : le tableau de bord de la journée.</p>
+<p><figure><img src="captures/util-01-vue-ensemble.png" alt="Écran principal (Vue d'ensemble)" loading="lazy"><figcaption>Écran principal (Vue d'ensemble)</figcaption></figure></p>
+<ol>
+<li><strong>Vue d&#39;ensemble</strong> : le menu de gauche. Il ouvre tous les écrans : <strong>Patients</strong>, <strong>Médicaments</strong>, <strong>Agenda</strong>, <strong>Modèles</strong>, <strong>Caisse</strong>, <strong>Configuration</strong> et <strong>Licence &amp; Abonnement</strong>.</li>
+<li><strong>Patients Totaux</strong> : le nombre de dossiers du cabinet.</li>
+<li><strong>RDV du jour</strong> : le nombre de rendez-vous prévus aujourd&#39;hui.</li>
+<li><strong>Utilisateurs</strong> : les comptes du cabinet (visible seulement par l&#39;administrateur).</li>
+</ol>
+<p>Le tableau de bord montre aussi les <strong>Recettes du jour (DZD)</strong>, le nombre de patients <strong>En attente</strong>, les <strong>Dernières consultations</strong>, les <strong>Rendez-vous</strong> du jour et la <strong>Salle d&#39;Attente</strong>.</p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>L&#39;écran ouvert est surligné dans le menu. La flèche en bas du menu (<strong>Réduire le menu</strong>) le replie pour gagner de la place.</p>
+</div><h3 id="2-1-les-notifications"><span class="num">2.1</span> Les notifications</h3>
+<ol>
+<li>En haut à droite, cliquez sur la cloche. Le nombre rouge indique les notifications non lues.</li>
+<li>La liste s&#39;ouvre : rendez-vous du jour, patients arrivés en salle d&#39;attente. <strong>Tout effacer</strong> vide la liste.</li>
+</ol>
+<p><figure><img src="captures/util-02-notifications.png" alt="Notifications" loading="lazy"><figcaption>Notifications</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Avant chaque rendez-vous, EL-HAKIM PRO affiche un rappel « Rendez-vous prévu dans … minutes » avec un son.</p>
+</div><h3 id="2-2-se-deconnecter"><span class="num">2.2</span> Se déconnecter</h3>
+<p>Cliquez sur votre nom en bas à gauche, puis sur <strong>Se déconnecter</strong>. Faites-le toujours avant de quitter le poste.</p>
+</section>
+<section class="chapitre"><h2 id="3-gerer-les-patients"><span class="num">3.</span> Gérer les patients</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : trouver un patient, créer un dossier, ouvrir et compléter un dossier.</div>
+
+<h3 id="3-1-trouver-un-patient"><span class="num">3.1</span> Trouver un patient</h3>
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Patients</strong>. La liste des dossiers s&#39;affiche.</li>
+<li>Tapez une partie du nom, du prénom ou du téléphone dans <strong>RECHERCHER</strong>. La liste se réduit pendant la saisie.</li>
+<li>Pour départager deux homonymes, saisissez aussi la <strong>DATE DE NAISSANCE</strong> (JJ/MM/AAAA).</li>
+</ol>
+<p><figure><img src="captures/util-05-recherche.png" alt="Rechercher un patient" loading="lazy"><figcaption>Rechercher un patient</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p><strong>Effacer</strong> remet la liste complète.</p>
+</div><h3 id="3-2-creer-un-dossier-patient"><span class="num">3.2</span> Créer un dossier patient</h3>
+<ol>
+<li>Cliquez sur <strong>＋ Nouveau patient</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-04-patients-liste.png" alt="Liste des patients" loading="lazy"><figcaption>Liste des patients</figcaption></figure></p>
+<p>La fenêtre <strong>Nouveau Dossier</strong> s&#39;ouvre, sur l&#39;onglet <strong>État Civil</strong>.</p>
+<p><figure><img src="captures/util-06-nouveau-patient.png" alt="Nouveau Dossier" loading="lazy"><figcaption>Nouveau Dossier</figcaption></figure></p>
+<ol start="2">
+<li>Saisissez le <strong>NOM</strong> du patient.</li>
+<li>Saisissez son <strong>PRÉNOM</strong>.</li>
+<li>Saisissez sa <strong>DATE NAISSANCE</strong> au format JJ/MM/AAAA (exemple : 14/03/1978), puis choisissez le <strong>SEXE</strong> (<strong>H</strong> ou <strong>F</strong>). Pour un enfant, cochez <strong>Pédiatrie ?</strong>.</li>
+<li>Si vous les connaissez, ouvrez l&#39;onglet <strong>Données Cliniques</strong> : taille, poids, groupe sanguin, allergies, antécédents.</li>
+<li>Cliquez sur <strong>VALIDER LE DOSSIER</strong>.</li>
+</ol>
+<p>Les champs marqués d&#39;une étoile (*) sont obligatoires. S&#39;il en manque un, le message <strong>Formulaire invalide</strong> indique lequel.</p>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Si un patient avec les mêmes nom, prénom et date de naissance, ou le même téléphone, existe déjà, EL-HAKIM PRO vous le signale : « Un patient avec le même Nom/Prénom/Date de naissance, ou le même numéro de téléphone existe déjà… ». Vérifiez dans la liste avant de créer un doublon.</p>
+</div><h3 id="3-3-ouvrir-le-dossier-d-un-patient"><span class="num">3.3</span> Ouvrir le dossier d&#39;un patient</h3>
+<p>Dans la liste, cliquez sur le nom du patient. Son dossier s&#39;ouvre.</p>
+<p><figure><img src="captures/util-08-dossier.png" alt="Dossier d'un patient" loading="lazy"><figcaption>Dossier d'un patient</figcaption></figure></p>
+<ol>
+<li><strong>Planifier un rendez-vous</strong> : donne un rendez-vous à ce patient.</li>
+<li><strong>Éditer</strong> : ouvre le générateur de documents (certificat, arrêt de travail…). Voir « Établir un document ».</li>
+<li><strong>+ Nouvelle consultation</strong> : commence une consultation.</li>
+<li><strong>Historique Clinique</strong> : les consultations et les documents du patient, du plus récent au plus ancien.</li>
+<li><strong>Documents joints</strong> : les fichiers ajoutés au dossier (analyses, comptes rendus scannés…).</li>
+</ol>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Un dossier contient des données de santé. Ne laissez pas un dossier ouvert à l&#39;écran en votre absence.</p>
+</div><h3 id="3-4-modifier-le-profil-medical-poids-taille"><span class="num">3.4</span> Modifier le profil médical (poids, taille…)</h3>
+<p>Le <strong>PROFIL MÉDICAL</strong> montre le poids, la taille, le groupe sanguin, les allergies et les maladies chroniques.</p>
+<ol>
+<li>Passez la souris sur la case à modifier (par exemple <strong>POIDS</strong>) : un petit bouton apparaît. Cliquez dessus.</li>
+<li>Saisissez la nouvelle valeur.</li>
+<li>Cliquez sur <strong>Enregistrer</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-07-profil-medical.png" alt="Profil médical : modifier le poids" loading="lazy"><figcaption>Profil médical : modifier le poids</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Pour corriger l&#39;état civil (nom, date de naissance, téléphone), cliquez sur <strong>Modifier</strong> dans la liste des patients, sur la ligne du patient.</p>
+</div><h3 id="3-5-joindre-un-document-au-dossier"><span class="num">3.5</span> Joindre un document au dossier</h3>
+<ol>
+<li>Dans le dossier, descendez jusqu&#39;à <strong>Documents joints</strong>.</li>
+<li>Saisissez un titre (exemple : « Bilan sanguin »).</li>
+<li>Cliquez sur <strong>Choisir un fichier</strong> et choisissez le fichier (PDF, image…).</li>
+<li>Cliquez sur <strong>Ajouter</strong>.</li>
+</ol>
+</section>
+<section class="chapitre"><h2 id="4-gerer-les-rendez-vous-et-l-agenda"><span class="num">4.</span> Gérer les rendez-vous et l&#39;agenda</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : donner un rendez-vous, lire l'agenda et changer l'état d'un rendez-vous.</div>
+
+<p>Les rendez-vous durent <strong>30 minutes</strong>, entre <strong>08h00</strong> et <strong>19h00</strong> (dernier début possible : 18h30). On ne peut pas donner un rendez-vous dans le passé.</p>
+<h3 id="4-1-donner-un-rendez-vous-depuis-le-dossier-du-patient"><span class="num">4.1</span> Donner un rendez-vous depuis le dossier du patient</h3>
+<ol>
+<li>Ouvrez le dossier du patient.</li>
+<li>Cliquez sur <strong>Planifier un rendez-vous</strong>.</li>
+<li>Choisissez la <strong>DATE ET HEURE</strong>. Le message <strong>Créneau disponible</strong> confirme que le créneau est libre.</li>
+<li>Cliquez sur <strong>Confirmer le rendez-vous</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-09-planifier.png" alt="Planifier un rendez-vous" loading="lazy"><figcaption>Planifier un rendez-vous</figcaption></figure></p>
+<h3 id="4-2-lire-l-agenda"><span class="num">4.2</span> Lire l&#39;agenda</h3>
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Agenda</strong>.</li>
+<li>Choisissez l&#39;affichage : <strong>Jour</strong>, <strong>Mois</strong> ou <strong>3 Mois</strong>.</li>
+<li>Changez de date avec les flèches de part et d&#39;autre de la date.</li>
+</ol>
+<p><figure><img src="captures/util-10-agenda-jour.png" alt="Agenda, vue Jour" loading="lazy"><figcaption>Agenda, vue Jour</figcaption></figure></p>
+<p>Chaque rendez-vous affiche son heure, le nom du patient, le type d&#39;acte et son état : <strong>En attente</strong> (à venir), <strong>En salle</strong> (patient arrivé), <strong>En cours</strong>, <strong>Terminé</strong>, <strong>Absent</strong>, <strong>Annulé</strong>. La ligne bleue marque l&#39;heure actuelle (<strong>Direct</strong>).</p>
+<p><figure><img src="captures/util-11-agenda-mois.png" alt="Agenda, vue Mois" loading="lazy"><figcaption>Agenda, vue Mois</figcaption></figure></p>
+<p><figure><img src="captures/util-12-agenda-3-mois.png" alt="Agenda, vue 3 Mois" loading="lazy"><figcaption>Agenda, vue 3 Mois</figcaption></figure></p>
+<h3 id="4-3-donner-un-rendez-vous-depuis-l-agenda"><span class="num">4.3</span> Donner un rendez-vous depuis l&#39;agenda</h3>
+<ol>
+<li>Dans la vue <strong>Jour</strong>, cliquez sur un créneau libre. La fenêtre <strong>Planifier un Patient</strong> s&#39;ouvre, avec la date et l&#39;heure du créneau.</li>
+<li>Dans <strong>RECHERCHE PATIENT EXISTANT</strong>, tapez le nom ou le téléphone, puis cliquez sur le patient dans la liste.</li>
+<li>Choisissez le <strong>TYPE D&#39;ACTE MÉDICAL</strong> : <strong>Consultation</strong>, <strong>Contrôle</strong>, <strong>Urgence</strong> ou <strong>Délégué</strong>.</li>
+<li>Cliquez sur <strong>Planifier</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-13-creneau.png" alt="Planifier un Patient depuis l'agenda" loading="lazy"><figcaption>Planifier un Patient depuis l'agenda</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Le patient n&#39;a pas encore de dossier ? Utilisez <strong>Nouvel Assuré (Création Rapide)</strong> dans la même fenêtre : saisissez le nom, le prénom et la date de naissance, puis <strong>Ajouter ce patient</strong>.</p>
+</div><h3 id="4-4-signaler-l-arrivee-une-absence-ou-une-annulation"><span class="num">4.4</span> Signaler l&#39;arrivée, une absence ou une annulation</h3>
+<ol>
+<li>Dans l&#39;agenda, faites un <strong>clic droit</strong> sur le rendez-vous. Le menu <strong>ACTION RAPIDE</strong> s&#39;ouvre.</li>
+<li>Choisissez :<ul>
+<li><strong>LE PATIENT EST ARRIVÉ</strong> : le patient passe en salle d&#39;attente ;</li>
+<li><strong>MARQUER COMME ABSENT</strong> ;</li>
+<li><strong>ANNULER LE RDV</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><figure><img src="captures/util-14-action-rapide.png" alt="Action rapide (clic droit sur un rendez-vous)" loading="lazy"><figcaption>Action rapide (clic droit sur un rendez-vous)</figcaption></figure></p>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p><strong>SUPPRIMER DÉFINITIV.</strong> efface le rendez-vous de l&#39;agenda. Préférez <strong>ANNULER LE RDV</strong>, qui garde une trace.</p>
+</div><h3 id="4-5-voir-le-detail-d-un-rendez-vous"><span class="num">4.5</span> Voir le détail d&#39;un rendez-vous</h3>
+<p>Cliquez (clic gauche) sur un rendez-vous. La fenêtre <strong>Détails du créneau</strong> affiche l&#39;heure, le type et l&#39;état.</p>
+<ol>
+<li><strong>Supprimer</strong> : supprime le rendez-vous (une confirmation est demandée).</li>
+<li><strong>Ouvrir</strong> : ouvre le dossier du patient.</li>
+</ol>
+<p><figure><img src="captures/util-15-details-creneau.png" alt="Détails du créneau" loading="lazy"><figcaption>Détails du créneau</figcaption></figure></p>
+</section>
+<section class="chapitre"><h2 id="5-accueillir-les-patients-la-salle-d-attente"><span class="num">5.</span> Accueillir les patients : la salle d&#39;attente</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : suivre les patients arrivés et appeler le patient suivant.</div>
+
+<ol>
+<li>Quand un patient arrive, la secrétaire le signale : clic droit sur son rendez-vous dans l&#39;agenda, puis <strong>LE PATIENT EST ARRIVÉ</strong>.</li>
+<li>Il apparaît dans la <strong>Salle d&#39;Attente</strong> de <strong>Vue d&#39;ensemble</strong>, avec le temps d&#39;attente (« En attente depuis … »).</li>
+<li>Le médecin clique sur <strong>Prendre</strong> pour appeler le patient.</li>
+</ol>
+<p><figure><img src="captures/util-03-salle-attente.png" alt="Vue d'ensemble › Salle d'Attente" loading="lazy"><figcaption>Vue d'ensemble › Salle d'Attente</figcaption></figure></p>
+<p>Le dossier du patient s&#39;ouvre avec la mention <strong>CONSULTATION ACTIVE</strong>. Le message « Consultation lancée » confirme l&#39;appel. Cliquez sur <strong>+ Nouvelle consultation</strong> pour commencer.</p>
+<p><figure><img src="captures/util-34-prendre.png" alt="Patient pris en consultation" loading="lazy"><figcaption>Patient pris en consultation</figcaption></figure></p>
+</section>
+<section class="chapitre"><h2 id="6-faire-une-consultation"><span class="num">6.</span> Faire une consultation</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : saisir les constantes, les observations et le motif de la visite.</div>
+
+<ol>
+<li>Dans le dossier du patient, cliquez sur <strong>+ Nouvelle consultation</strong>.</li>
+<li>Saisissez les constantes dans les cases : <strong>Température</strong>, <strong>Tension</strong>, <strong>Pouls</strong>, <strong>SpO₂</strong>, <strong>Glycémie</strong>. L&#39;<strong>IMC</strong> est calculé à partir du poids et de la taille.</li>
+<li>Dans <strong>Observations</strong>, choisissez le motif : <strong>Consultation</strong>, <strong>Contrôle</strong>, <strong>Urgence</strong> ou <strong>Établir un document</strong>.</li>
+<li>Rédigez vos <strong>Notes cliniques</strong>.</li>
+<li>Rédigez l&#39;<strong>Ordonnance</strong> si besoin (voir le chapitre suivant).</li>
+<li>Terminez avec <strong>Clôturer la visite</strong> (voir « Clôturer la visite et encaisser »).</li>
+</ol>
+<p><figure><img src="captures/util-23-consultation.png" alt="Nouvelle consultation" loading="lazy"><figcaption>Nouvelle consultation</figcaption></figure></p>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p><strong>Clôturer la visite</strong> reste grisé tant que le motif n&#39;est pas choisi.</p>
+</div></section>
+<section class="chapitre"><h2 id="7-rediger-une-ordonnance"><span class="num">7.</span> Rédiger une ordonnance</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : ajouter des médicaments, choisir la posologie et utiliser vos modèles.</div>
+
+<h3 id="7-1-ajouter-un-medicament"><span class="num">7.1</span> Ajouter un médicament</h3>
+<ol>
+<li>Dans la partie <strong>Ordonnance</strong> de la consultation, tapez le nom du médicament dans <strong>Taper le nom du médicament (ex: Amoxicilline)</strong>.</li>
+<li>Cliquez sur le médicament voulu dans la liste des résultats.</li>
+</ol>
+<p><figure><img src="captures/util-24-ordonnance-recherche.png" alt="Rechercher un médicament" loading="lazy"><figcaption>Rechercher un médicament</figcaption></figure></p>
+<p>La fenêtre de posologie s&#39;ouvre :</p>
+<ol>
+<li><strong>1. DURÉE DU TRAITEMENT</strong> : cliquez sur une durée (exemple : <strong>7 jours</strong>) ou saisissez-la.</li>
+<li><strong>2. QUANTITÉ (QSP)</strong> : cliquez sur une quantité (exemple : <strong>1 flacon</strong>) ou saisissez-la.</li>
+<li><strong>3. POSOLOGIE / INSTRUCTIONS</strong> : cliquez sur la dose et la fréquence (exemple : <strong>1 cuillère à café (5ml)</strong>, <strong>2 fois par jour</strong>).</li>
+<li>Cliquez sur <strong>Valider la posologie</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-25-posologie.png" alt="Choisir la posologie" loading="lazy"><figcaption>Choisir la posologie</figcaption></figure></p>
+<p>Le médicament s&#39;ajoute à l&#39;ordonnance. Chaque case de la ligne reste modifiable.</p>
+<p><figure><img src="captures/util-26-ordonnance-ligne.png" alt="Ligne de l'ordonnance" loading="lazy"><figcaption>Ligne de l'ordonnance</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Un médicament introuvable ? Cliquez sur <strong>+ Ajout manuel (ligne vierge)</strong> sous l&#39;ordonnance et saisissez-le. La touche <strong>Tab</strong> passe d&#39;une case à la suivante.</p>
+</div><h3 id="7-2-utiliser-un-modele-d-ordonnance"><span class="num">7.2</span> Utiliser un modèle d&#39;ordonnance</h3>
+<p>Pour une prescription fréquente, enregistrez-la une fois comme modèle (voir « Les modèles »). Ensuite, dans la consultation, cliquez sur <strong>Modèles</strong> (en haut à droite de l&#39;ordonnance), choisissez le modèle dans la <strong>Bibliothèque</strong>, puis cliquez sur <strong>Appliquer</strong>.</p>
+</section>
+<section class="chapitre"><h2 id="8-cloturer-la-visite-et-encaisser"><span class="num">8.</span> Clôturer la visite et encaisser</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : terminer la consultation et enregistrer le paiement.</div>
+
+<ol>
+<li>Cliquez sur <strong>Clôturer la visite</strong>. La consultation est enregistrée (message « Consultation enregistrée ») et la fenêtre <strong>Finaliser le paiement</strong> s&#39;ouvre.</li>
+<li>Dans <strong>ACTES PRATIQUÉS (NOMENCLATURE)</strong>, cliquez sur les actes faits pendant la visite.</li>
+<li>Vérifiez le <strong>MONTANT FINAL À ENCAISSER (DZD)</strong>, calculé à partir des actes choisis.</li>
+</ol>
+<p><figure><img src="captures/util-32-paiement.png" alt="Finaliser le paiement : actes et montant" loading="lazy"><figcaption>Finaliser le paiement : actes et montant</figcaption></figure></p>
+<ol start="4">
+<li>Choisissez le <strong>STATUT DU RÈGLEMENT</strong> : <strong>PAYÉ</strong>, ou <strong>NON PAYÉ (DETTE)</strong> si le patient paiera plus tard.</li>
+<li>Choisissez le moyen de paiement : <strong>Espèces</strong> ou <strong>Carte/CIB</strong>.</li>
+<li>Pour confier l&#39;encaissement à la secrétaire, cochez <strong>DÉLÉGUER L&#39;ENCAISSEMENT AU SECRÉTARIAT</strong>.</li>
+<li>Cliquez sur <strong>VALIDER LE PAIEMENT</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-33-paiement-statut.png" alt="Finaliser le paiement : statut et validation" loading="lazy"><figcaption>Finaliser le paiement : statut et validation</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p><strong>MONTANT VERSÉ (DZD)</strong> sert quand le patient ne paie qu&#39;une partie : le reste (<strong>MANQUE</strong>) est noté comme dette. Pour un traitement en plusieurs séances, voir la section suivante.</p>
+</div><h3 id="8-1-un-traitement-en-plusieurs-seances"><span class="num">8.1</span> Un traitement en plusieurs séances</h3>
+<p>Certains soins se font en plusieurs visites pour un prix global (série de pansements, rééducation, soins dentaires…). Le patient paie à son rythme : EL-HAKIM PRO suit le total, ce qui est déjà versé et le reste à payer.</p>
+<p><strong>Première séance : créer le traitement</strong></p>
+<ol>
+<li>Clôturez la visite comme d&#39;habitude. Dans <strong>Finaliser le paiement</strong>, cochez <strong>CE PAIEMENT FAIT PARTIE D&#39;UN TRAITEMENT MULTI-SÉANCES</strong>.</li>
+<li>Dans <strong>TRAITEMENT CONCERNÉ</strong>, laissez <strong>+ Nouveau traitement...</strong>, puis saisissez le <strong>NOM DU TRAITEMENT</strong>.</li>
+<li>Saisissez le <strong>PRIX TOTAL (DZD)</strong> du traitement complet.</li>
+</ol>
+<p><figure><img src="captures/util-35-multi-seances-nouveau.png" alt="Nouveau traitement multi-séances" loading="lazy"><figcaption>Nouveau traitement multi-séances</figcaption></figure></p>
+<ol start="4">
+<li>Le <strong>MONTANT FINAL À ENCAISSER (DZD)</strong> prend la valeur du prix total.</li>
+<li>Dans <strong>MONTANT VERSÉ (DZD)</strong>, saisissez ce que le patient paie aujourd&#39;hui. Le <strong>MANQUE</strong> affiché est le reste à payer.</li>
+<li>Cliquez sur <strong>VALIDER LE PAIEMENT</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-36-multi-seances-acompte.png" alt="Acompte de la première séance" loading="lazy"><figcaption>Acompte de la première séance</figcaption></figure></p>
+<p><strong>Séances suivantes</strong></p>
+<ol>
+<li>Clôturez la visite, puis cochez <strong>CE PAIEMENT FAIT PARTIE D&#39;UN TRAITEMENT MULTI-SÉANCES</strong>.</li>
+<li>Le traitement en cours est choisi dans <strong>TRAITEMENT CONCERNÉ</strong>, avec son reste à payer (exemple : « Série de pansements (Reste: 3 000 DZD) »). Le montant à encaisser est ce reste.</li>
+<li>Saisissez le <strong>MONTANT VERSÉ (DZD)</strong> du jour, puis cliquez sur <strong>VALIDER LE PAIEMENT</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-37-multi-seances-suite.png" alt="Séance suivante du même traitement" loading="lazy"><figcaption>Séance suivante du même traitement</figcaption></figure></p>
+<p><strong>Suivre le traitement dans le dossier</strong></p>
+<p>Dans l&#39;<strong>Historique Clinique</strong> du patient, les séances du traitement sont regroupées sous son nom, avec son état (<strong>EN COURS</strong>, puis <strong>Clôturé</strong>), le nombre de séances, le <strong>TOTAL</strong>, le <strong>Versé</strong> et le <strong>RESTE</strong>. Chaque séance affiche le montant versé ce jour-là, avec la mention <strong>Séance du traitement</strong>. La <strong>DETTE EN COURS</strong> du patient (sous son nom, en haut du dossier) correspond au reste du traitement.</p>
+<p><figure><img src="captures/util-38-multi-seances-historique.png" alt="Traitement dans l'historique du patient" loading="lazy"><figcaption>Traitement dans l'historique du patient</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Le reste à payer est recalculé à chaque séance : la dette du patient n&#39;est jamais comptée deux fois. Quand tout est payé, le traitement affiche <strong>TOTALEMENT RÉGLÉ</strong> et passe à l&#39;état <strong>Clôturé</strong>.</p>
+</div><div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Cochez la case à <strong>chaque</strong> séance du traitement. Sinon, la séance est encaissée comme une visite ordinaire et n&#39;est pas rattachée au traitement.</p>
+</div><div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Un même patient peut avoir plusieurs traitements ouverts : choisissez le bon dans <strong>TRAITEMENT CONCERNÉ</strong>. Pour en commencer un autre, choisissez <strong>+ Nouveau traitement...</strong>.</p>
+</div><div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Si l&#39;ordonnance contient des médicaments, son aperçu avant impression s&#39;ouvre à la fermeture de la fenêtre de paiement.</p>
+</div></section>
+<section class="chapitre"><h2 id="9-etablir-un-document"><span class="num">9.</span> Établir un document</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : rédiger, vérifier et imprimer un certificat, un arrêt de travail ou un autre document médical.</div>
+
+<h3 id="9-1-choisir-le-type-de-document"><span class="num">9.1</span> Choisir le type de document</h3>
+<ol>
+<li>Ouvrez le dossier du patient.</li>
+<li>Dans <strong>PROFIL MÉDICAL</strong>, cliquez sur <strong>Éditer</strong>. Le <strong>Générateur de documents</strong> s&#39;ouvre.</li>
+<li>Cliquez sur le type de document : <strong>ARRÊT DE TRAVAIL</strong>, <strong>COMPTE RENDU</strong>, <strong>BILAN BIOLOGIQUE</strong>, <strong>ORD. LUNETTES</strong> (pour les ophtalmologues), <strong>IMAGERIE MÉDICALE</strong>, <strong>CERTIFICAT MÉDICAL</strong> ou <strong>LETTRE D&#39;ORIENTATION</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-27-generateur.png" alt="Générateur de documents" loading="lazy"><figcaption>Générateur de documents</figcaption></figure></p>
+<h3 id="9-2-exemple-un-certificat-medical"><span class="num">9.2</span> Exemple : un certificat médical</h3>
+<ol>
+<li>Cliquez sur <strong>CERTIFICAT MÉDICAL</strong>.</li>
+<li>Dans <strong>CHOIX RAPIDE</strong>, cliquez sur un texte type (<strong>APTITUDE SPORTIVE</strong>, <strong>BONNE SANTÉ</strong>, <strong>ARRÊT DE TRAVAIL</strong>, <strong>TEXTE LIBRE</strong>).</li>
+<li>Complétez ou corrigez le texte dans <strong>RÉDACTION</strong>.</li>
+<li>Cliquez sur <strong>GÉNÉRER L&#39;APERÇU</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-28-certificat.png" alt="Certificat médical" loading="lazy"><figcaption>Certificat médical</figcaption></figure></p>
+<p>L&#39;aperçu s&#39;ouvre dans une fenêtre à part. Vérifiez le document, choisissez l&#39;imprimante, puis lancez l&#39;impression.</p>
+<p><figure><img src="captures/util-29-certificat-imprime.png" alt="Certificat médical imprimé (exemple, format A5)" loading="lazy"><figcaption>Certificat médical imprimé (exemple, format A5)</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>L&#39;en-tête (nom, spécialité, adresse, logo) vient de <strong>Configuration</strong> › <strong>Identité</strong>. Chaque document porte une <strong>RÉF. DOCUMENT</strong> et un code QR qui l&#39;identifient.</p>
+</div><h3 id="9-3-exemple-un-arret-de-travail"><span class="num">9.3</span> Exemple : un arrêt de travail</h3>
+<ol>
+<li>Cliquez sur <strong>ARRÊT DE TRAVAIL</strong>.</li>
+<li>Réglez la <strong>DURÉE (JOURS)</strong> avec <strong>−</strong> et <strong>+</strong>, puis la <strong>DATE DE DÉBUT</strong>.</li>
+<li>Cliquez sur <strong>GÉNÉRER L&#39;APERÇU</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-30-arret-travail.png" alt="Arrêt de travail" loading="lazy"><figcaption>Arrêt de travail</figcaption></figure></p>
+<h3 id="9-4-retrouver-et-reimprimer-un-document"><span class="num">9.4</span> Retrouver et réimprimer un document</h3>
+<ol>
+<li>Dans le dossier du patient, ouvrez l&#39;onglet <strong>Documents</strong> de l&#39;<strong>Historique Clinique</strong>.</li>
+<li>Cliquez sur <strong>Voir</strong> pour rouvrir et réimprimer le document, ou sur <strong>Supprimer</strong> pour l&#39;effacer.</li>
+</ol>
+<p><figure><img src="captures/util-31-documents.png" alt="Historique Clinique › Documents" loading="lazy"><figcaption>Historique Clinique › Documents</figcaption></figure></p>
+<h3 id="9-5-papier-et-imprimante"><span class="num">9.5</span> Papier et imprimante</h3>
+<p>Chaque document a un format de feuille fixe, toujours en portrait (feuille en hauteur) :</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Feuille à mettre dans l&#39;imprimante</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ordonnance</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Certificat médical</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Arrêt de travail</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Bilan biologique</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Imagerie médicale</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Ordonnance de lunettes</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Lettre d&#39;orientation</td>
+<td><strong>A5</strong></td>
+</tr>
+<tr>
+<td>Compte rendu</td>
+<td><strong>A4</strong></td>
+</tr>
+<tr>
+<td>Courbes de croissance</td>
+<td><strong>A4</strong></td>
+</tr>
+</tbody></table>
+<p>Le format A5 est la moitié d&#39;une feuille A4 (14,8 × 21 cm).</p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Avec une seule imprimante, gardez du papier <strong>A5</strong> dans le bac : c&#39;est le format de presque tous les documents. Mettez du <strong>A4</strong> seulement pour un compte rendu ou des courbes de croissance.</p>
+</div><div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Avant de lancer l&#39;impression, vérifiez dans la fenêtre d&#39;aperçu le format de papier choisi pour l&#39;imprimante : il doit correspondre à la feuille du bac (A5 ou A4). Sinon, le document sort réduit, coupé ou mal placé. Si l&#39;imprimante ne propose pas le A5, réglez-le une fois pour toutes dans ses préférences (Paramètres de Windows › Imprimantes et scanners).</p>
+</div><div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Une ordonnance longue continue sur une deuxième feuille A5, avec le numéro de page en bas. Mettez assez de feuilles dans le bac.</p>
+</div></section>
+<section class="chapitre"><h2 id="10-suivre-la-croissance-d-un-enfant"><span class="num">10.</span> Suivre la croissance d&#39;un enfant</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : saisir les mesures d'un enfant et lire ses courbes de croissance.</div>
+
+<p>Ce module s&#39;utilise pour les patients de moins de 20 ans. Il s&#39;active dans <strong>Configuration</strong> › <strong>Identité</strong>, partie <strong>MODULES</strong> (case <strong>Courbes de croissance (pédiatrie)</strong>). Les courbes utilisent les références CDC 2000.</p>
+<ol>
+<li>Ouvrez le dossier de l&#39;enfant, puis l&#39;onglet <strong>Croissance</strong> de l&#39;<strong>Historique Clinique</strong>.</li>
+<li>Saisissez la <strong>DATE</strong>, le <strong>POIDS (KG)</strong>, la <strong>TAILLE (CM)</strong> (dans <strong>MESURÉE</strong>, choisissez <strong>debout</strong> ou <strong>couchée</strong>) et le <strong>PC (CM)</strong> (périmètre crânien).</li>
+<li>Cliquez sur <strong>Ajouter la mesure</strong>.</li>
+<li><strong>Imprimer</strong> imprime les courbes.</li>
+</ol>
+<p><figure><img src="captures/util-16-croissance.png" alt="Onglet Croissance" loading="lazy"><figcaption>Onglet Croissance</figcaption></figure></p>
+<p>Les courbes (poids, taille, IMC…) se mettent à jour à chaque mesure. Choisissez la période (<strong>0 à 36 mois</strong> ou <strong>2 à 20 ans</strong>) et l&#39;affichage (<strong>Percentiles</strong> ou <strong>Z-scores</strong>).</p>
+<p><figure><img src="captures/util-17-croissance-courbes.png" alt="Courbes de croissance" loading="lazy"><figcaption>Courbes de croissance</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Pour un enfant né prématuré, saisissez le <strong>Terme de naissance</strong> (en semaines d&#39;aménorrhée, SA) puis <strong>Enregistrer le terme</strong> : sous 37 SA, l&#39;âge corrigé est utilisé jusqu&#39;à 24 mois.</p>
+</div></section>
+<section class="chapitre"><h2 id="11-les-modeles"><span class="num">11.</span> Les modèles</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : préparer vos ordonnances et documents types pour gagner du temps.</div>
+
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Modèles</strong>. La <strong>Bibliothèque de Modèles</strong> s&#39;affiche.</li>
+<li>Cliquez sur <strong>+ Créer un modèle</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-18-modeles.png" alt="Bibliothèque de Modèles" loading="lazy"><figcaption>Bibliothèque de Modèles</figcaption></figure></p>
+<ol start="3">
+<li>Dans <strong>1. QUEL TYPE DE MODÈLE ?</strong>, choisissez : <strong>ORDONNANCE</strong>, <strong>BILAN BIOLOGIQUE</strong>, <strong>IMAGERIE MÉDICALE</strong>, <strong>ARRÊT DE TRAVAIL</strong>, <strong>CERTIFICAT MÉDICAL</strong> ou <strong>COMPTE RENDU</strong>.</li>
+<li>Cliquez sur <strong>SUIVANT</strong>, donnez un nom au modèle et remplissez-le.</li>
+<li>Cliquez sur <strong>Enregistrer le Modèle</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-19-modele-type.png" alt="Configuration du Modèle" loading="lazy"><figcaption>Configuration du Modèle</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Dans le texte d&#39;un modèle, les <strong>Variables</strong> (<strong>+ Nom Patient</strong>, <strong>+ Âge</strong>, <strong>+ Date</strong>, <strong>+ Genre</strong>) sont remplacées automatiquement par les informations du patient.</p>
+</div></section>
+<section class="chapitre"><h2 id="12-les-medicaments"><span class="num">12.</span> Les médicaments</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : chercher un médicament et en ajouter un absent de la nomenclature.</div>
+
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Médicaments</strong>. La nomenclature s&#39;affiche.</li>
+<li>Pour chercher, tapez le nom commercial ou le nom générique dans la barre de recherche.</li>
+<li>Pour ajouter un médicament, cliquez sur <strong>Ajouter</strong>, remplissez la <strong>FICHE PHARMACEUTIQUE</strong> (marque, molécule, code CNAS, forme, dosage), puis cliquez sur <strong>ENREGISTRER</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-20-medicaments-fiche.png" alt="Ajouter un médicament" loading="lazy"><figcaption>Ajouter un médicament</figcaption></figure></p>
+</section>
+<section class="chapitre"><h2 id="13-la-caisse"><span class="num">13.</span> La caisse</h2>
+<div class="apprendre"><strong>Ce que vous allez apprendre</strong> : suivre les recettes et les dépenses du cabinet.</div>
+
+<p>La caisse est réservée au médecin et à l&#39;administrateur.</p>
+<ol>
+<li>Dans le menu de gauche, cliquez sur <strong>Caisse</strong>. L&#39;écran <strong>Finance &amp; Trésorerie</strong> s&#39;affiche : recettes, dépenses, solde et dettes, puis les <strong>Mouvements du jour</strong>.</li>
+<li>Les paiements des visites clôturées s&#39;y ajoutent seuls.</li>
+</ol>
+<p><figure><img src="captures/util-21-caisse.png" alt="Finance &amp; Trésorerie" loading="lazy"><figcaption>Finance &amp; Trésorerie</figcaption></figure></p>
+<h3 id="13-1-ajouter-une-recette-ou-une-depense"><span class="num">13.1</span> Ajouter une recette ou une dépense</h3>
+<ol>
+<li>Cliquez sur <strong>＋ Nouvelle recette</strong> (ou <strong>− Nouvelle dépense</strong>).</li>
+<li>Saisissez le <strong>MONTANT (DZD)</strong>.</li>
+<li>Choisissez la <strong>CATÉGORIE</strong>.</li>
+<li>Si le patient paiera plus tard, cochez <strong>MARQUER COMME DETTE PATIENT</strong>. Complétez <strong>NOM / LIBELLÉ (OPTIONNEL)</strong> et le <strong>MOYEN</strong> de paiement.</li>
+<li>Cliquez sur <strong>VALIDER</strong>.</li>
+</ol>
+<p><figure><img src="captures/util-22-nouvelle-recette.png" alt="Nouvel Encaissement" loading="lazy"><figcaption>Nouvel Encaissement</figcaption></figure></p>
+<div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Les dettes d&#39;un patient apparaissent dans son dossier. <strong>Régulariser</strong> enregistre leur paiement.</p>
+</div></section>
+<section class="chapitre"><h2 id="14-bonnes-pratiques"><span class="num">14.</span> Bonnes pratiques</h2>
+<ul>
+<li>Chaque personne utilise <strong>son propre compte</strong>. Déconnectez-vous avant de quitter le poste.</li>
+<li>Faites une <strong>sauvegarde</strong> au moins une fois par semaine sur le serveur, et gardez-la hors de l&#39;ordinateur (voir le <em>Guide d&#39;installation</em>, chapitre « Sauvegarder et restaurer les données »).</li>
+<li>Laissez le <strong>serveur allumé</strong>, avec EL-HAKIM PRO ouvert, pendant les heures d&#39;ouverture du cabinet.</li>
+<li>Vérifiez chaque document dans l&#39;<strong>aperçu</strong> avant de l&#39;imprimer.</li>
+<li>Installez les <strong>mises à jour</strong> proposées, d&#39;abord sur le serveur, puis sur les autres postes.</li>
+</ul>
+</section></main><script>
+      // Recherche : n'affiche que les sections qui contiennent le texte saisi.
+      const q = document.getElementById("q"), sections = [...document.querySelectorAll("main section.chapitre")];
+      q.addEventListener("input", () => { const t = q.value.trim().toLowerCase();
+        for (const s of sections) s.hidden = t !== "" && !s.innerText.toLowerCase().includes(t); });
+    </script></body></html>

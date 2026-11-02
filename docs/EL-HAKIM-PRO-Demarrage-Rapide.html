@@ -1,0 +1,134 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Démarrage rapide — EL-HAKIM PRO 1.4.2</title><style>/* docs-guides/outils/style-guides.css — guides EL-HAKIM PRO (HTML pour le site et PDF A4).
+   Lisible en noir et blanc : les encadrés se distinguent par leur bordure, leur icône et leur titre, pas par la couleur. */
+:root {
+  --texte: #1d2733; --doux: #5b6776; --bord: #d5dce4; --fond: #f5f7fa; --carte: #fff;
+  --accent: #0d4a7a; --accent-clair: #e8f1f8;
+  --astuce: #1f7a4d; --attention: #9a6700; --important: #b42318;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; font-family: "Segoe UI", "Noto Sans", Arial, sans-serif; color: var(--texte); line-height: 1.55; background: var(--carte); }
+h1, h2, h3, h4 { line-height: 1.25; color: var(--accent); }
+h2 { font-size: 1.55rem; margin: 2.2rem 0 .8rem; padding-bottom: .3rem; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.15rem; margin: 1.6rem 0 .5rem; }
+h4 { font-size: 1rem; margin: 1.2rem 0 .4rem; color: var(--texte); }
+.num { color: var(--doux); font-weight: 600; }
+p, li { max-width: 46rem; }
+ol, ul { padding-left: 1.4rem; }
+li { margin: .25rem 0; }
+strong { color: #0b2f4f; }
+code { font-family: Consolas, "Cascadia Mono", monospace; font-size: .92em; background: var(--fond); border: 1px solid var(--bord); border-radius: 4px; padding: 0 .3em; }
+pre { background: var(--fond); border: 1px solid var(--bord); border-radius: 6px; padding: .7rem .9rem; overflow-x: auto; }
+pre code { border: 0; padding: 0; background: none; }
+table { border-collapse: collapse; width: 100%; margin: .8rem 0; font-size: .95rem; }
+th, td { border: 1px solid var(--bord); padding: .4rem .55rem; text-align: left; vertical-align: top; }
+th { background: var(--fond); }
+figure { margin: 1rem 0 1.4rem; }
+figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--bord); border-radius: 6px; }
+figcaption { font-size: .86rem; color: var(--doux); margin-top: .35rem; font-style: italic; }
+.encadre { border: 1.5px solid; border-left-width: 6px; border-radius: 6px; padding: .55rem .85rem; margin: 1rem 0; background: var(--carte); }
+.encadre p { margin: .25rem 0; }
+.encadre-titre { font-weight: 700; margin-bottom: .15rem; }
+.astuce { border-color: var(--astuce); } .astuce .encadre-titre { color: var(--astuce); }
+.attention { border-color: var(--attention); } .attention .encadre-titre { color: var(--attention); }
+.important { border-color: var(--important); } .important .encadre-titre { color: var(--important); }
+.apprendre { background: var(--accent-clair); border-radius: 6px; padding: .5rem .9rem; margin: .4rem 0 1rem; }
+.sommaire ol { list-style: none; padding: 0; margin: 0; }
+.sommaire li { margin: .15rem 0; max-width: none; }
+.sommaire li.n3 { padding-left: 1.4rem; font-size: .93em; }
+.sommaire a { color: var(--texte); text-decoration: none; }
+.sommaire a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---- Site (HTML) : sommaire à gauche, contenu à droite ; une colonne sur téléphone ---- */
+body.web { display: grid; grid-template-columns: 18rem minmax(0, 1fr); min-height: 100vh; }
+body.web aside { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--fond); border-right: 1px solid var(--bord); padding: 1rem 1rem 2rem; font-size: .92rem; }
+body.web aside .sommaire h2 { font-size: 1rem; border: 0; margin: .2rem 0 .6rem; }
+body.web main { padding: 1.5rem 2.2rem 4rem; max-width: 62rem; }
+.titre-web .produit { color: var(--doux); font-weight: 600; letter-spacing: .05em; }
+.titre-web h1 { margin: .2rem 0 1rem; font-size: 2rem; }
+.recherche { position: sticky; top: 0; background: var(--carte); padding: .6rem 0; z-index: 2; border-bottom: 1px solid var(--bord); margin-bottom: 1rem; }
+.recherche label { display: block; font-size: .85rem; color: var(--doux); }
+.recherche input { width: 100%; max-width: 30rem; font: inherit; padding: .45rem .7rem; border: 1px solid var(--bord); border-radius: 6px; }
+@media (max-width: 860px) {
+  body.web { display: block; }
+  body.web aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--bord); }
+  body.web main { padding: 1rem 1rem 3rem; }
+}
+
+/* ---- PDF A4 ---- */
+body.pdf { font-size: 10.5pt; }
+body.pdf main { padding: 0; }
+.garde { height: 255mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; border: 1.5px solid var(--accent); border-radius: 4mm; padding: 20mm; }
+.garde .editeur { letter-spacing: .3em; font-weight: 700; color: var(--doux); }
+.garde .produit { font-size: 30pt; font-weight: 800; color: var(--accent); margin: 6mm 0 2mm; }
+.garde h1 { font-size: 22pt; margin: 0 0 10mm; }
+.garde .version { font-size: 12pt; }
+.garde .public { margin-top: 4mm; color: var(--doux); }
+body.pdf .sommaire { page-break-after: always; }
+body.pdf section.chapitre { page-break-before: always; }
+body.pdf h2 { margin-top: 0; }
+body.pdf figure, body.pdf .encadre, body.pdf table, body.pdf pre { page-break-inside: avoid; }
+body.pdf h2, body.pdf h3, body.pdf h4 { page-break-after: avoid; }
+body.pdf figure img { max-height: 120mm; width: auto; max-width: 100%; }
+
+/* ---- Démarrage rapide : 2 pages compactes, sans page de garde ---- */
+body.pdf.compact { font-size: 9.5pt; }
+body.pdf.compact section.chapitre { page-break-before: auto; }
+body.pdf.compact h2 { font-size: 13pt; margin: 3mm 0 1.5mm; }
+body.pdf.compact h1.titre-rapide { margin: 0 0 2mm; }
+body.pdf.compact figure img { max-height: 55mm; }
+
+</style></head>
+      <body class="web compact">
+      
+      <main><header class="titre-web"><div class="produit">EL-HAKIM PRO 1.4.2</div><h1>Démarrage rapide</h1></header><div class="recherche"><label for="q">Rechercher dans le guide</label>
+        <input id="q" type="search" placeholder="Ex. : sauvegarde, ordonnance, rendez-vous…" autocomplete="off"></div><section class="chapitre"><h2 id="1-se-connecter"><span class="num">1.</span> Se connecter</h2>
+<ol>
+<li>Double-cliquez sur <strong>EL-HAKIM PRO</strong> sur le Bureau.</li>
+<li>Saisissez votre <strong>UTILISATEUR</strong> et votre <strong>MOT DE PASSE</strong>, puis cliquez sur <strong>S&#39;IDENTIFIER</strong>.</li>
+<li>Pour partir : cliquez sur votre nom en bas à gauche, puis sur <strong>Se déconnecter</strong>.</li>
+</ol>
+<div class="encadre important"><div class="encadre-titre"><span aria-hidden="true">❗</span> Important</div><p>Premier démarrage : compte <strong>admin</strong>, mot de passe <strong>admin123</strong>. Changez-le tout de suite (votre nom en bas à gauche › <strong>Modifier mot de passe</strong>).</p>
+</div></section>
+<section class="chapitre"><h2 id="2-l-ecran-principal"><span class="num">2.</span> L&#39;écran principal</h2>
+<p><figure><img src="captures/util-01-vue-ensemble.png" alt="Vue d'ensemble" loading="lazy"><figcaption>Vue d'ensemble</figcaption></figure></p>
+<p>Le menu de gauche ouvre tous les écrans. <strong>Vue d&#39;ensemble</strong> montre la journée : rendez-vous, recettes, salle d&#39;attente.</p>
+</section>
+<section class="chapitre"><h2 id="3-creer-ou-trouver-un-patient"><span class="num">3.</span> Créer ou trouver un patient</h2>
+<ul>
+<li><strong>Trouver</strong> : <strong>Patients</strong>, puis tapez le nom ou le téléphone dans <strong>RECHERCHER</strong>. Cliquez sur le nom pour ouvrir le dossier.</li>
+<li><strong>Créer</strong> : <strong>Patients</strong> › <strong>＋ Nouveau patient</strong> › <strong>NOM</strong>, <strong>PRÉNOM</strong>, <strong>DATE NAISSANCE</strong> (JJ/MM/AAAA), <strong>SEXE</strong> › <strong>VALIDER LE DOSSIER</strong>.</li>
+</ul>
+</section>
+<section class="chapitre"><h2 id="4-donner-un-rendez-vous"><span class="num">4.</span> Donner un rendez-vous</h2>
+<ul>
+<li><strong>Depuis le dossier</strong> : <strong>Planifier un rendez-vous</strong> › date et heure › <strong>Confirmer le rendez-vous</strong>.</li>
+<li><strong>Depuis l&#39;agenda</strong> : <strong>Agenda</strong>, vue <strong>Jour</strong> › clic sur un créneau libre › cherchez le patient › <strong>Planifier</strong>.</li>
+<li><strong>Arrivée du patient</strong> : clic droit sur son rendez-vous › <strong>LE PATIENT EST ARRIVÉ</strong>. Il passe en <strong>Salle d&#39;Attente</strong>.</li>
+</ul>
+<p>Rendez-vous de 30 minutes, de 08h00 à 19h00.</p>
+</section>
+<section class="chapitre"><h2 id="5-consultation-medecin"><span class="num">5.</span> Consultation (médecin)</h2>
+<ol>
+<li><strong>Vue d&#39;ensemble</strong> › <strong>Salle d&#39;Attente</strong> › <strong>Prendre</strong>, puis <strong>+ Nouvelle consultation</strong>.</li>
+<li>Saisissez les constantes, choisissez le motif dans <strong>Observations</strong>, rédigez les <strong>Notes cliniques</strong>.</li>
+<li><strong>Ordonnance</strong> : tapez le nom du médicament › cliquez sur le résultat › choisissez durée, quantité, posologie › <strong>Valider la posologie</strong>.</li>
+<li><strong>Clôturer la visite</strong> › choisissez les actes › <strong>PAYÉ</strong> ou <strong>NON PAYÉ (DETTE)</strong> › <strong>VALIDER LE PAIEMENT</strong>.</li>
+<li>Soin en plusieurs séances : à chaque séance, cochez <strong>CE PAIEMENT FAIT PARTIE D&#39;UN TRAITEMENT MULTI-SÉANCES</strong> (première fois : nom et <strong>PRIX TOTAL</strong>), puis saisissez le <strong>MONTANT VERSÉ</strong>.</li>
+</ol>
+</section>
+<section class="chapitre"><h2 id="6-imprimer-un-document-medecin"><span class="num">6.</span> Imprimer un document (médecin)</h2>
+<p>Dossier du patient › <strong>PROFIL MÉDICAL</strong> › <strong>Éditer</strong> › type de document (certificat, arrêt de travail…) › complétez › <strong>GÉNÉRER L&#39;APERÇU</strong> › imprimez.</p>
+<p>Papier : <strong>A5</strong> pour l&#39;ordonnance et tous les documents, sauf le compte rendu et les courbes de croissance (<strong>A4</strong>). Vérifiez le format dans l&#39;aperçu avant d&#39;imprimer.</p>
+</section>
+<section class="chapitre"><h2 id="7-a-ne-pas-oublier"><span class="num">7.</span> À ne pas oublier</h2>
+<div class="encadre attention"><div class="encadre-titre"><span aria-hidden="true">⚠️</span> Attention</div><p>Faites une <strong>sauvegarde</strong> chaque semaine sur le serveur : <strong>Configuration</strong> › <strong>Sécurité</strong> › <strong>Générer la sauvegarde</strong>. Gardez le fichier sur une clé USB.</p>
+</div><div class="encadre astuce"><div class="encadre-titre"><span aria-hidden="true">💡</span> Astuce</div><p>Le serveur reste allumé, avec EL-HAKIM PRO ouvert, pendant les heures d&#39;ouverture. Les autres postes ouvrent l&#39;adresse indiquée dans <strong>Configuration</strong> › <strong>Identité</strong> › <strong>ACCÈS RÉSEAU LOCAL</strong>.</p>
+</div><p>Pour tout le détail : <em>Guide d&#39;installation et de configuration</em> et <em>Guide d&#39;utilisation</em>.</p>
+</section></main><script>
+      // Recherche : n'affiche que les sections qui contiennent le texte saisi.
+      const q = document.getElementById("q"), sections = [...document.querySelectorAll("main section.chapitre")];
+      q.addEventListener("input", () => { const t = q.value.trim().toLowerCase();
+        for (const s of sections) s.hidden = t !== "" && !s.innerText.toLowerCase().includes(t); });
+    </script></body></html>
