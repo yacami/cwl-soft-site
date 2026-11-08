@@ -1,31 +1,31 @@
 {
-  "date": "2026-11-08T12:01:01.877Z",
+  "date": "2026-11-08T14:11:16.440Z",
   "fichiers": [
     {
       "nom": "EL-HAKIM-PRO-Demarrage-Rapide.pdf",
       "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/EL-HAKIM-PRO-Demarrage-Rapide.pdf",
-      "sha256": "677ec399e37fe028379b54353726ab9e7aa6b59d7a9768cce720bba8747fc869",
-      "taille": 238228,
+      "sha256": "76fa16013c29af5a8919342875e7b856fa2ef1058f62490085d45deea3de2fa4",
+      "taille": 240156,
       "destination": "guides/Démarrage rapide.pdf",
-      "version": "1.4.2",
+      "version": "1.4.5",
       "description": "Démarrage rapide (2 pages à imprimer)"
     },
     {
       "nom": "EL-HAKIM-PRO-Guide-Installation.pdf",
       "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/EL-HAKIM-PRO-Guide-Installation.pdf",
-      "sha256": "32ba5198f961f217a63a294d9039e45cbe4bf1d9f5c864f2e8d90a0edbc521b8",
-      "taille": 1729566,
+      "sha256": "c78880b6bc41290235a706d8c59d3f0f67bf9d61f11008675658bd6a1a916c27",
+      "taille": 1729768,
       "destination": "guides/Guide d'installation et de configuration.pdf",
-      "version": "1.4.2",
+      "version": "1.4.5",
       "description": "Guide d'installation et de configuration"
     },
     {
       "nom": "EL-HAKIM-PRO-Guide-Utilisation.pdf",
       "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/EL-HAKIM-PRO-Guide-Utilisation.pdf",
-      "sha256": "36e56ec38aa6d1e92a8d5caa7e2e3cf0e0fff590511108f7394ceca367a961af",
-      "taille": 4637414,
+      "sha256": "c7175a5ecb72367fbb3ae5831f5213164edfd2e30489e027bcccb43898767bdb",
+      "taille": 4665529,
       "destination": "guides/Guide d'utilisation.pdf",
-      "version": "1.4.2",
+      "version": "1.4.5",
       "description": "Guide d'utilisation"
     },
     {
