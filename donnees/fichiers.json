@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-08T14:11:16.440Z",
+  "date": "2026-11-09T15:25:35.615Z",
   "fichiers": [
     {
       "nom": "EL-HAKIM-PRO-Demarrage-Rapide.pdf",
-      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/EL-HAKIM-PRO-Demarrage-Rapide.pdf",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.6/EL-HAKIM-PRO-Demarrage-Rapide.pdf",
       "sha256": "76fa16013c29af5a8919342875e7b856fa2ef1058f62490085d45deea3de2fa4",
       "taille": 240156,
       "destination": "guides/Démarrage rapide.pdf",
@@ -12,7 +12,7 @@
     },
     {
       "nom": "EL-HAKIM-PRO-Guide-Installation.pdf",
-      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/EL-HAKIM-PRO-Guide-Installation.pdf",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.6/EL-HAKIM-PRO-Guide-Installation.pdf",
       "sha256": "c78880b6bc41290235a706d8c59d3f0f67bf9d61f11008675658bd6a1a916c27",
       "taille": 1729768,
       "destination": "guides/Guide d'installation et de configuration.pdf",
@@ -21,7 +21,7 @@
     },
     {
       "nom": "EL-HAKIM-PRO-Guide-Utilisation.pdf",
-      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/EL-HAKIM-PRO-Guide-Utilisation.pdf",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.6/EL-HAKIM-PRO-Guide-Utilisation.pdf",
       "sha256": "c7175a5ecb72367fbb3ae5831f5213164edfd2e30489e027bcccb43898767bdb",
       "taille": 4665529,
       "destination": "guides/Guide d'utilisation.pdf",
@@ -30,7 +30,7 @@
     },
     {
       "nom": "guide-courbes-de-croissance.docx",
-      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/guide-courbes-de-croissance.docx",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.6/guide-courbes-de-croissance.docx",
       "sha256": "4f6bac90f5561863187fe2168301c2d6fc07a8de095c6cbac308bde80bc4e9ff",
       "taille": 23491,
       "destination": "guide-courbes-de-croissance.docx",
@@ -39,7 +39,7 @@
     },
     {
       "nom": "logos-specialites.rar",
-      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/logos-specialites.rar",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.6/logos-specialites.rar",
       "sha256": "6b170d024b91f32ff98847d2d16bdcb9d182f89f01ece228a993b23dd61acf44",
       "taille": 4520188,
       "destination": "logos-specialites.rar",
@@ -48,7 +48,7 @@
     },
     {
       "nom": "nomenclature-medicaments-juin-2026.xlsx",
-      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.5/nomenclature-medicaments-juin-2026.xlsx",
+      "url": "https://github.com/yacami/el-hakim-pro-releases/releases/download/v1.4.6/nomenclature-medicaments-juin-2026.xlsx",
       "sha256": "44e69a29df6bfe25632ca55d985605b259683f42badabbddeef9b2a8e3c78228",
       "taille": 1453516,
       "destination": "nomenclature-medicaments-juin-2026.xlsx",
